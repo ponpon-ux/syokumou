@@ -1,0 +1,200 @@
+<!--
+  ============================================================
+  記事テンプレート（_template.html）
+  新しい記事を追加するときは、このファイルをコピーして使ってください。
+  1. ファイル名を articles/半角英字-スラッグ.html に変更する
+  2. <title> <meta description> <link canonical> <meta property="og:*"> をすべて書き換える
+  3. パンくずリストの3番目の項目名を変更する
+  4. article-header__category / h1 / article-meta を変更する
+  5. 目次（toc）を記事構成に合わせて書き換える（不要なら toc ブロックごと削除可）
+  6. 本文（article-body内のh2/h3/p）を差し替える
+  7. 関連記事（related）のリンクを見直す
+  8. 医学的な事実・料金・効果を断定する表現、根拠のない保証表現は入れないこと
+  9. トップページの「最新記事」欄、および articles 一覧、sitemap.xml にもリンクを追加する
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【記事タイトル】｜自毛植毛ラボ</title>
+<meta name="description" content="【120字程度でこの記事の要約を書く】">
+<link rel="canonical" href="https://example.com/articles/【スラッグ】.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="自毛植毛ラボ">
+<meta property="og:title" content="【記事タイトル】｜自毛植毛ラボ">
+<meta property="og:description" content="【120字程度でこの記事の要約を書く】">
+<meta property="og:url" content="https://example.com/articles/【スラッグ】.html">
+<meta property="og:image" content="https://example.com/images/ogp-default.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://example.com/" },
+    { "@type": "ListItem", "position": 2, "name": "自毛植毛の基礎", "item": "https://example.com/articles/what-is-hair-transplant.html" },
+    { "@type": "ListItem", "position": 3, "name": "【記事タイトル】", "item": "https://example.com/articles/【スラッグ】.html" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="/">自毛植毛<span>ラボ</span></a>
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="global-nav">
+      <span class="nav-toggle__icon"><span></span></span>
+      メニュー
+    </button>
+  </div>
+  <nav class="site-nav" id="global-nav" data-nav aria-label="グローバルナビゲーション">
+    <ul class="site-nav__list">
+      <li><a href="/">ホーム</a></li>
+      <li><a href="/articles/what-is-hair-transplant.html">自毛植毛とは</a></li>
+      <li><a href="/articles/cost.html">費用</a></li>
+      <li><a href="/articles/fue-vs-fut.html">FUE・FUT</a></li>
+      <li><a href="/articles/regret-prevention.html">後悔しないために</a></li>
+      <li><a href="/comparison/">クリニック比較</a></li>
+      <li><a href="/about/">運営者情報</a></li>
+    </ul>
+  </nav>
+</header>
+
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <ol>
+    <li><a href="/">ホーム</a></li>
+    <li><a href="/articles/what-is-hair-transplant.html">自毛植毛の基礎</a></li>
+    <li>【記事タイトル】</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+  <header class="article-header">
+    <div class="container">
+      <span class="article-header__category">【カテゴリ名】</span>
+      <h1>【記事タイトル】</h1>
+      <p class="article-meta">最終更新日：【YYYY年M月D日】</p>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="container">
+
+      <p>【リード文。記事全体の要点を2〜3文で紹介する】</p>
+
+      <div class="callout callout--neutral">
+        <p class="callout__title">この記事でわかること</p>
+        <p>【箇条書きにしたい場合はul/liに変更可】【要点1】【要点2】【要点3】</p>
+      </div>
+
+      <nav class="toc" aria-label="目次">
+        <p class="toc__title">目次</p>
+        <ol>
+          <li><a href="#h2-1">【見出し1】</a></li>
+          <li><a href="#h2-2">【見出し2】</a></li>
+          <li><a href="#h2-3">【見出し3】</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="h2-1">【見出し1】</h2>
+      <p>【本文】</p>
+
+      <div class="ad-slot" aria-label="広告">
+        <span class="ad-slot__label">広告</span>
+        <div class="ad-slot__body">
+          ここに広告・アフィリエイトリンクが入ります。
+          <code>&lt;!-- AD PLACEHOLDER: article-mid --&gt;</code>
+        </div>
+      </div>
+
+      <h2 id="h2-2">【見出し2】</h2>
+      <p>【本文】</p>
+      <h3>【小見出し】</h3>
+      <p>【本文】</p>
+
+      <h2 id="h2-3">【見出し3】</h2>
+      <p>【本文】</p>
+
+      <div class="callout">
+        <p class="callout__title">ご注意</p>
+        <p>
+          本記事は一般的な情報提供を目的としており、効果や結果を保証するものではありません。
+          治療の適応や見込みには個人差があります。実際の検討にあたっては、必ず医療機関で医師にご相談ください。
+        </p>
+      </div>
+
+      <div class="placeholder-note">
+        監修者を設置する場合はここに氏名・資格・プロフィールへのリンクを記載してください（未設置の場合は本文を削除）。
+      </div>
+
+      <section class="related">
+        <h2 class="related__title">関連記事</h2>
+        <ul>
+          <li><a href="/articles/what-is-hair-transplant.html">自毛植毛とは｜仕組みとAGA治療との違い</a></li>
+          <li><a href="/articles/cost.html">自毛植毛の費用｜料金の仕組みと考え方</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>参考にした情報</h2>
+        <p>【参照した公的資料・学会情報などがあればここに記載。出典のない医学的断定は行わない】</p>
+      </section>
+
+    </div>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-col__title">サイトについて</div>
+      <ul>
+        <li><a href="/about/">運営者情報</a></li>
+        <li><a href="/ads/">広告について</a></li>
+        <li><a href="/privacy/">プライバシーポリシー</a></li>
+        <li><a href="/contact/">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col__title">記事一覧</div>
+      <ul>
+        <li><a href="/articles/what-is-hair-transplant.html">自毛植毛とは</a></li>
+        <li><a href="/articles/cost.html">費用</a></li>
+        <li><a href="/articles/fue-vs-fut.html">FUEとFUTの違い</a></li>
+        <li><a href="/articles/grafts.html">グラフト・株数とは</a></li>
+        <li><a href="/articles/pros-and-cons.html">メリット・デメリット</a></li>
+        <li><a href="/articles/regret-prevention.html">後悔しないために</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col__title">比較</div>
+      <ul>
+        <li><a href="/comparison/">クリニック比較表</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-disclaimer">
+    本サイトは医療機関ではなく、医師・医療従事者による医学的助言を提供するものではありません。
+    掲載内容は情報提供を目的としており、治療の効果や結果を保証するものではありません。
+    実際の治療をご検討の際は、必ず医療機関で医師の診察・説明を受けたうえでご判断ください。
+    記事内には広告・アフィリエイトリンクを含む場合があります（詳細は<a href="/ads/">広告について</a>）。
+  </p>
+  <p class="footer-bottom">&copy; <span data-current-year>2026</span> 自毛植毛ラボ</p>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
