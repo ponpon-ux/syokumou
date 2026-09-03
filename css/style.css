@@ -25,6 +25,18 @@
   --color-ad-border: #C9C4B6;
   --color-ad-label: #8A8478;
 
+  /* --- カードUI用カラー（Webメディア風トップページ） --- */
+  --color-badge-compare-bg: #DCE7E4;
+  --color-badge-compare-text: #1E3F3A;
+  --color-badge-clinic-bg: #FBE7DA;
+  --color-badge-clinic-text: #A85A2E;
+  --color-badge-basic-bg: #ECEAE3;
+  --color-badge-basic-text: #5B6663;
+  --color-pickup-bg: #FFF1CF;
+  --color-pickup-text: #8A5A15;
+  --color-card-surface: #FFFFFF;
+  --color-thumb-bg: #EFEDE6;
+
   /* --- タイポグラフィ --- */
   --font-serif: "Noto Serif JP", serif;
   --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
@@ -34,6 +46,8 @@
   --wide-width: 960px;
   --radius-sm: 3px;
   --radius-md: 6px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
 }
 
 * {
@@ -553,7 +567,8 @@ li { margin-bottom: 0.4em; }
    ========================================================================== */
 
 .compare-intro {
-  padding: 34px 0 10px;
+  padding-top: 34px;
+  padding-bottom: 10px;
 }
 
 .compare-table-wrap {
@@ -569,6 +584,9 @@ li { margin-bottom: 0.4em; }
   min-width: 760px;
   font-size: 0.88rem;
   background: var(--color-surface);
+}
+.compare-table--compact {
+  min-width: 0;
 }
 .compare-table caption {
   text-align: left;
@@ -683,7 +701,8 @@ li { margin-bottom: 0.4em; }
   border-bottom: 1px solid var(--color-border);
 }
 .page-body {
-  padding: 26px 0 20px;
+  padding-top: 26px;
+  padding-bottom: 20px;
 }
 .page-body h2 {
   margin-top: 1.6em;
@@ -791,4 +810,405 @@ li { margin-bottom: 0.4em; }
 .skip-link:focus {
   left: 10px;
   top: 10px;
+}
+
+/* ==========================================================================
+   一時非表示ユーティリティ（temp-hidden）
+   ------------------------------------------------------------------------
+   クリニック比較・クリニック個別のコンテンツ準備が整うまでの一時措置。
+   HTML構造・他のCSSは削除せず、このクラスを外すだけで元に戻せます。
+   復活させる場合：対象要素の class="... temp-hidden" から
+   " temp-hidden" の文字列を削除するだけでOKです（このルール自体も削除して構いません）。
+   ========================================================================== */
+.temp-hidden {
+  display: none !important;
+}
+
+/* ==========================================================================
+   トップページ（Webメディア風） - Hero
+   ========================================================================== */
+
+.media-hero {
+  padding: 36px 0 30px;
+  border-bottom: 1px solid var(--color-border);
+  background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+}
+.media-hero__inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.media-hero__text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.media-hero__art {
+  flex: 0 0 auto;
+  width: 96px;
+  height: 96px;
+  display: none;
+}
+.media-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  background: var(--color-accent-soft);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin: 0 0 14px;
+}
+.media-hero h1 {
+  font-size: clamp(1.5rem, 5vw, 2.15rem);
+  margin-bottom: 0.5em;
+}
+.media-hero p {
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  max-width: 46em;
+  margin-bottom: 0.9em;
+}
+.media-hero__disclosure {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--color-text-muted);
+  border-left: 3px solid var(--color-accent-soft);
+  padding-left: 10px;
+  margin-top: 14px;
+}
+
+@media (min-width: 640px) {
+  .media-hero__art { display: block; }
+}
+
+/* ==========================================================================
+   セクション見出し（共通）
+   ========================================================================== */
+
+.media-section {
+  padding: 34px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.media-section:last-of-type {
+  border-bottom: none;
+}
+.media-section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.media-section__title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.media-section__title .icon {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+  color: var(--color-accent);
+}
+.media-section__more {
+  font-size: 0.85rem;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--color-accent-dark);
+  font-weight: 700;
+}
+.media-section__more:hover { color: var(--color-accent); }
+.media-section__lead {
+  color: var(--color-text-muted);
+  margin: 0 0 1.4em;
+  font-size: 0.94rem;
+}
+
+/* ==========================================================================
+   クリニック比較への導線（最優先セクション）
+   ========================================================================== */
+
+.cta-grid {
+  display: grid;
+  gap: 14px;
+}
+.cta-card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: var(--color-accent-dark);
+  color: #fff;
+  border-radius: var(--radius-lg);
+  padding: 22px 22px;
+  text-decoration: none;
+}
+.cta-card:hover { background: var(--color-accent); }
+.cta-card__icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cta-card__icon svg { width: 24px; height: 24px; color: #fff; }
+.cta-card__body { flex: 1 1 auto; min-width: 0; }
+.cta-card__title {
+  display: block;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.08rem;
+  margin: 0 0 4px;
+  color: #fff;
+}
+.cta-card__desc {
+  display: block;
+  font-size: 0.86rem;
+  margin: 0;
+  color: rgba(255,255,255,0.82);
+}
+.cta-card--outline {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+.cta-card--outline:hover { background: var(--color-bg-alt); }
+.cta-card--outline .cta-card__icon { background: var(--color-accent-soft); }
+.cta-card--outline .cta-card__icon svg { color: var(--color-accent-dark); }
+.cta-card--outline .cta-card__title { color: var(--color-text); }
+.cta-card--outline .cta-card__desc { color: var(--color-text-muted); }
+
+@media (min-width: 640px) {
+  .cta-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ==========================================================================
+   カードグリッド（記事一覧・注目記事・カテゴリカード 共通）
+   ========================================================================== */
+
+.card-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 960px) {
+  .card-grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-card-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--color-text);
+  transition: none;
+}
+.card:hover {
+  border-color: var(--color-accent);
+}
+.card:hover .card__title {
+  color: var(--color-accent-dark);
+}
+
+.card__thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--color-thumb-bg);
+  overflow: hidden;
+}
+.card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card__thumb-placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.card__badges {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.badge--compare { background: var(--color-badge-compare-bg); color: var(--color-badge-compare-text); }
+.badge--clinic  { background: var(--color-badge-clinic-bg);  color: var(--color-badge-clinic-text); }
+.badge--basic   { background: var(--color-badge-basic-bg);   color: var(--color-badge-basic-text); }
+.badge--pickup  { background: var(--color-pickup-bg); color: var(--color-pickup-text); }
+.badge--soon    { background: var(--color-bg-alt); color: var(--color-text-muted); border: 1px dashed var(--color-border); }
+
+.card__body {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.card__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.55;
+  margin: 0 0 8px;
+  color: var(--color-text);
+}
+.card__excerpt {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin: 0 0 12px;
+  flex: 1 1 auto;
+}
+.card__cta {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: auto;
+}
+.card__cta .icon { width: 0.9em; height: 0.9em; }
+
+/* --- 注目記事（ピックアップ）カード：一回り大きく強調 --- */
+.card--pickup {
+  border-color: var(--color-border);
+}
+.card--pickup .card__thumb {
+  aspect-ratio: 16 / 8;
+}
+.card--pickup .card__title {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+.card--pickup .card__body { padding: 18px 18px 20px; }
+
+/* --- 準備中カード（クリニック個別など未掲載時） --- */
+.card--soon {
+  cursor: default;
+}
+.card--soon .card__thumb { opacity: 0.75; }
+.card--soon:hover { border-color: var(--color-border); }
+.card--soon .card__title { color: var(--color-text-muted); }
+
+/* ==========================================================================
+   基礎知識（補助セクション：控えめなリスト表示）
+   ========================================================================== */
+
+.basics-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-border);
+}
+.basics-list li {
+  border-bottom: 1px solid var(--color-border);
+  margin: 0;
+}
+.basics-list a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 2px;
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 0.92rem;
+}
+.basics-list a:hover { color: var(--color-accent); }
+.basics-list .badge { flex: none; }
+.basics-list__text { flex: 1 1 auto; }
+
+/* ==========================================================================
+   料金の要約ボックス（記事内「結局いくらかかる？」等）
+   ========================================================================== */
+
+.price-summary {
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 20px 20px 22px;
+  margin: 1.6em 0;
+}
+.price-summary__title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--color-accent-dark);
+  margin: 0 0 14px;
+}
+.price-summary__grid {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+.price-summary__row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 9px 0;
+  border-bottom: 1px dashed rgba(30, 63, 58, 0.18);
+  font-size: 0.92rem;
+}
+.price-summary__row:last-child {
+  border-bottom: none;
+}
+.price-summary__label {
+  color: var(--color-accent-dark);
+  font-weight: 700;
+}
+.price-summary__value {
+  color: var(--color-text);
+  font-weight: 700;
+}
+.price-summary__formula {
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  line-height: 1.7;
+}
+.price-summary__formula strong {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 480px) {
+  .price-summary__row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .price-summary__value {
+    text-align: right;
+  }
 }

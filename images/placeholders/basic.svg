@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="基礎知識のイメージ画像">
+  <rect width="400" height="225" fill="#ECEAE3"/>
+  <path d="M130 68 h70 a10 10 0 0 1 10 10 v70 h-80 a10 10 0 0 1 -10 -10 v-60 a10 10 0 0 1 10 -10 z" fill="#FFFFFF" stroke="#5B6663" stroke-width="3"/>
+  <path d="M270 68 h-70 a10 10 0 0 0 -10 10 v70 h80 a10 10 0 0 0 10 -10 v-60 a10 10 0 0 0 -10 -10 z" fill="#FFFFFF" stroke="#5B6663" stroke-width="3"/>
+  <line x1="200" y1="70" x2="200" y2="148" stroke="#5B6663" stroke-width="3"/>
+  <line x1="140" y1="90" x2="188" y2="90" stroke="#5B6663" stroke-width="3" opacity="0.5"/>
+  <line x1="140" y1="106" x2="180" y2="106" stroke="#5B6663" stroke-width="3" opacity="0.5"/>
+  <line x1="212" y1="90" x2="260" y2="90" stroke="#5B6663" stroke-width="3" opacity="0.5"/>
+  <line x1="212" y1="106" x2="252" y2="106" stroke="#5B6663" stroke-width="3" opacity="0.5"/>
+</svg>

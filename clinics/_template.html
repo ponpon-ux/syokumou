@@ -1,0 +1,230 @@
+<!--
+  ============================================================
+  クリニック個別記事テンプレート（clinics/_template.html）
+  実在クリニックを1院取り上げる記事を作るときは、このファイルをコピーして使ってください。
+
+  【重要な方針】
+  ・記事タイトルで疑問や関心を提起すること自体は問題ありません
+    （例：「〇〇クリニックはやばい？」「〇〇の評判を調査」など）。
+  ・ただし本文では「やばい」等の断定はせず、公式サイト・口コミサイト・
+    公的資料など確認できる情報源をもとに、料金・特徴・注意点を検証する構成にすること。
+  ・実在しない口コミ、症例、評価、料金を作成しないこと。
+  ・確認が取れない情報は「確認できませんでした」「公式サイトでご確認ください」と明記すること。
+  ・断定的な効果保証（必ず生える 等）は使用しないこと。
+
+  【使い方】
+  1. ファイル名を clinics/半角英字-スラッグ.html に変更する
+  2. <title> <meta description> <link canonical> <meta property="og:*"> を書き換える
+  3. パンくずの3番目、article-header内のクリニック名を書き換える
+  4. 本文（概要／料金／特徴／口コミ・評判／注意点／まとめ）を、確認済みの情報のみで執筆する
+  5. 出典（参照した公式サイトURLや調査日）を sources セクションに明記する
+  6. トップページの「クリニック個別」セクションおよび clinics/index.html の一覧、
+     必要であれば「注目の記事」セクションにもカードを追加する
+  7. sitemap.xml にURLを追加する
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【クリニック名】の評判・料金・特徴を調査｜自毛植毛ラボ</title>
+<meta name="description" content="【120字程度でこの記事の要約を書く。断定的な評価ではなく「調査・整理する記事」であることが伝わる要約にする】">
+<link rel="canonical" href="https://ponpon-ux.github.io/syokumou/clinics/【スラッグ】.html">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="自毛植毛ラボ">
+<meta property="og:title" content="【クリニック名】の評判・料金・特徴を調査｜自毛植毛ラボ">
+<meta property="og:description" content="【120字程度の要約】">
+<meta property="og:url" content="https://ponpon-ux.github.io/syokumou/clinics/【スラッグ】.html">
+<meta property="og:image" content="https://ponpon-ux.github.io/syokumou/images/eyecatch/【スラッグ】.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://ponpon-ux.github.io/syokumou/" },
+    { "@type": "ListItem", "position": 2, "name": "クリニック個別", "item": "https://ponpon-ux.github.io/syokumou/clinics/" },
+    { "@type": "ListItem", "position": 3, "name": "【クリニック名】", "item": "https://ponpon-ux.github.io/syokumou/clinics/【スラッグ】.html" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-logo" href="/syokumou/">自毛植毛<span>ラボ</span></a>
+    <button class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="global-nav">
+      <span class="nav-toggle__icon"><span></span></span>
+      メニュー
+    </button>
+  </div>
+  <nav class="site-nav" id="global-nav" data-nav aria-label="グローバルナビゲーション">
+    <ul class="site-nav__list">
+      <li><a href="/syokumou/">ホーム</a></li>
+      <!-- 一時非表示（temp-hidden）：コンテンツ準備が整い次第、class="temp-hidden" を外して復活してください -->
+      <li class="temp-hidden"><a href="/syokumou/comparison/">クリニック比較</a></li>
+      <li class="temp-hidden"><a href="/syokumou/clinics/">クリニック個別</a></li>
+      <li><a href="/syokumou/#pickup">注目記事</a></li>
+      <li><a href="/syokumou/articles/cost.html">費用</a></li>
+      <li><a href="/syokumou/articles/pros-and-cons.html">植毛のデメリット</a></li>
+      <li><a href="/syokumou/articles/what-is-hair-transplant.html">基礎知識</a></li>
+      <li><a href="/syokumou/about/">運営者情報</a></li>
+    </ul>
+  </nav>
+</header>
+
+<nav class="breadcrumb" aria-label="パンくずリスト">
+  <ol>
+    <li><a href="/syokumou/">ホーム</a></li>
+    <li><a href="/syokumou/clinics/">クリニック個別</a></li>
+    <li>【クリニック名】</li>
+  </ol>
+</nav>
+
+<main id="main">
+
+  <header class="article-header">
+    <div class="container">
+      <span class="article-header__category">クリニック個別</span>
+      <h1>【クリニック名】の評判・料金・特徴を調査</h1>
+      <p class="article-meta">最終更新日：【YYYY年M月D日】</p>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="container">
+
+      <!--
+        アイキャッチ画像：
+        images/eyecatch/【スラッグ】.jpg を用意したら下のsrcをそのまま差し替えてください。
+        未用意の間はプレースホルダーSVGが表示されます。
+      -->
+      <div class="card__thumb" style="aspect-ratio:16/9; border-radius: var(--radius-md); margin-bottom: 1.6em;">
+        <img src="../images/placeholders/clinic.svg" alt="【クリニック名】のイメージ画像" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+
+      <p>【リード文。この記事で何を調査・整理するのかを2〜3文で紹介する】</p>
+
+      <div class="callout callout--neutral">
+        <p class="callout__title">この記事でわかること</p>
+        <p>【要点1：料金の目安】【要点2：特徴】【要点3：口コミ・評判の調べ方や注意点】</p>
+      </div>
+
+      <nav class="toc" aria-label="目次">
+        <p class="toc__title">目次</p>
+        <ol>
+          <li><a href="#gaiyou">【クリニック名】の概要</a></li>
+          <li><a href="#ryoukin">料金の目安</a></li>
+          <li><a href="#tokuchou">特徴</a></li>
+          <li><a href="#kuchikomi">口コミ・評判について</a></li>
+          <li><a href="#chuui">確認しておきたい注意点</a></li>
+        </ol>
+      </nav>
+
+      <h2 id="gaiyou">【クリニック名】の概要</h2>
+      <p>【公式サイト等で確認できる基本情報（所在地・院数・対応術式など）を記載】</p>
+
+      <div class="ad-slot" aria-label="広告">
+        <span class="ad-slot__label">広告</span>
+        <div class="ad-slot__body">
+          ここに広告・アフィリエイトリンクが入ります。
+          <code>&lt;!-- AD PLACEHOLDER: clinic-article-mid --&gt;</code>
+        </div>
+      </div>
+
+      <h2 id="ryoukin">料金の目安</h2>
+      <p>
+        【公式サイトに掲載されている料金を、確認日とあわせて記載。変動する可能性がある旨を明記】
+      </p>
+
+      <h2 id="tokuchou">特徴</h2>
+      <p>【対応術式、カウンセリング体制、保証制度など、公式情報から確認できる特徴を記載】</p>
+
+      <h2 id="kuchikomi">口コミ・評判について</h2>
+      <p>
+        【口コミを引用する場合は出典を明記し、断定を避けた書き方にする。
+        ネガティブ・ポジティブいずれの口コミも、一部の意見であり全体を代表するものではない旨を明記】
+      </p>
+
+      <h2 id="chuui">確認しておきたい注意点</h2>
+      <p>【カウンセリング時に確認すべき点、契約前に注意すべき点などを整理】</p>
+
+      <div class="callout">
+        <p class="callout__title">ご注意</p>
+        <p>
+          本記事は公開情報をもとに整理した内容であり、治療の効果や結果を保証するものではありません。
+          料金・サービス内容は変更される場合があるため、最新情報は必ず公式サイトでご確認ください。
+        </p>
+      </div>
+
+      <section class="related">
+        <h2 class="related__title">関連記事</h2>
+        <ul>
+          <li><a href="/syokumou/comparison/">クリニック比較表</a></li>
+          <li><a href="/syokumou/articles/cost.html">自毛植毛の費用｜料金の仕組みと考え方</a></li>
+          <li><a href="/syokumou/articles/regret-prevention.html">植毛で後悔しないために</a></li>
+        </ul>
+      </section>
+
+      <section class="sources">
+        <h2>参照した情報</h2>
+        <p>【公式サイトURL、確認日などを記載。出典のない断定は行わない】</p>
+      </section>
+
+    </div>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-col__title">サイトについて</div>
+      <ul>
+        <li><a href="/syokumou/about/">運営者情報</a></li>
+        <li><a href="/syokumou/ads/">広告について</a></li>
+        <li><a href="/syokumou/privacy/">プライバシーポリシー</a></li>
+        <li><a href="/syokumou/contact/">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col__title">記事一覧</div>
+      <ul>
+        <li><a href="/syokumou/articles/what-is-hair-transplant.html">自毛植毛とは</a></li>
+        <li><a href="/syokumou/articles/cost.html">費用</a></li>
+        <li><a href="/syokumou/articles/fue-vs-fut.html">FUEとFUTの違い</a></li>
+        <li><a href="/syokumou/articles/grafts.html">グラフト・株数とは</a></li>
+        <li><a href="/syokumou/articles/pros-and-cons.html">メリット・デメリット</a></li>
+        <li><a href="/syokumou/articles/regret-prevention.html">後悔しないために</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col__title">比較・個別</div>
+      <ul>
+        <li><a href="/syokumou/comparison/">クリニック比較表</a></li>
+        <li><a href="/syokumou/clinics/">クリニック個別記事</a></li>
+      </ul>
+    </div>
+  </div>
+  <p class="footer-disclaimer">
+    本サイトは医療機関ではなく、医師・医療従事者による医学的助言を提供するものではありません。
+    掲載内容は情報提供を目的としており、治療の効果や結果を保証するものではありません。
+    実際の治療をご検討の際は、必ず医療機関で医師の診察・説明を受けたうえでご判断ください。
+    記事内には広告・アフィリエイトリンクを含む場合があります（詳細は<a href="/syokumou/ads/">広告について</a>）。
+  </p>
+  <p class="footer-bottom">&copy; <span data-current-year>2026</span> 自毛植毛ラボ</p>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

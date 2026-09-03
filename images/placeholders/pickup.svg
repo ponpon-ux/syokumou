@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="注目記事のイメージ画像">
+  <rect width="400" height="225" fill="#FFF6E3"/>
+  <circle cx="200" cy="112" r="46" fill="#FFF1CF"/>
+  <path d="M200 78c10 14 26 22 26 42a26 26 0 0 1 -52 0c0-10 6-16 12-24 1 8 6 12 10 12 6 0 4-8 4-8-4-8-4-14 0-22z"
+        fill="#8A5A15" opacity="0.9"/>
+  <circle cx="120" cy="60" r="6" fill="#FFD98A"/>
+  <circle cx="290" cy="150" r="5" fill="#FFD98A"/>
+  <circle cx="300" cy="60" r="4" fill="#FFD98A"/>
+</svg>

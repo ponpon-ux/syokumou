@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 225" role="img" aria-label="クリニックのイメージ画像">
+  <rect width="400" height="225" fill="#F7EEE6"/>
+  <rect x="130" y="70" width="140" height="100" rx="8" fill="#FBE7DA"/>
+  <rect x="150" y="90" width="24" height="24" rx="4" fill="#A85A2E" opacity="0.75"/>
+  <rect x="188" y="90" width="24" height="24" rx="4" fill="#A85A2E" opacity="0.75"/>
+  <rect x="226" y="90" width="24" height="24" rx="4" fill="#A85A2E" opacity="0.75"/>
+  <rect x="178" y="130" width="44" height="40" rx="4" fill="#A85A2E"/>
+  <path d="M120 72 L200 32 L280 72" fill="none" stroke="#A85A2E" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="185" y="140" width="30" height="8" rx="2" fill="#FBE7DA" opacity="0.9"/>
+</svg>
