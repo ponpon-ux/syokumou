@@ -881,6 +881,34 @@ li { margin-bottom: 0.4em; }
   .media-hero__art { display: block; }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.media-hero__banner {
+  display: block;
+}
+.media-hero__banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+  aspect-ratio: 2243 / 701;
+}
+@media (max-width: 639px) {
+  .media-hero__banner img {
+    aspect-ratio: 1402 / 1122;
+  }
+}
+
 /* ==========================================================================
    セクション見出し（共通）
    ========================================================================== */
