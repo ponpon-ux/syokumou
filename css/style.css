@@ -827,9 +827,18 @@ li { margin-bottom: 0.4em; }
    ========================================================================== */
 
 .media-hero {
-  padding: 36px 0 30px;
+  padding: 0;
   border-bottom: 1px solid var(--color-border);
   background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+}
+@media (max-width: 639px) {
+  .media-hero .container {
+    max-width: none;
+    padding: 0;
+  }
+  .media-hero__banner img {
+    border-radius: 0;
+  }
 }
 .media-hero__inner {
   display: flex;
