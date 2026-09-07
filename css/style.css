@@ -775,12 +775,6 @@ li { margin-bottom: 0.4em; }
   color: var(--color-text-muted);
 }
 
-@media (min-width: 640px) {
-  .footer-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
 /* ==========================================================================
    ユーティリティ
    ========================================================================== */
@@ -1014,6 +1008,9 @@ li { margin-bottom: 0.4em; }
   color: var(--color-text);
   transition: none;
 }
+.card[hidden] {
+  display: none;
+}
 .card:hover {
   border-color: var(--color-accent);
 }
@@ -1117,6 +1114,43 @@ li { margin-bottom: 0.4em; }
 .card--soon .card__thumb { opacity: 0.75; }
 .card--soon:hover { border-color: var(--color-border); }
 .card--soon .card__title { color: var(--color-text-muted); }
+
+/* ==========================================================================
+   記事一覧ページ：カテゴリ絞り込みボタン
+   ========================================================================== */
+
+.article-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 22px;
+}
+.article-filter__btn {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+.article-filter__btn:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
+}
+.article-filter__btn.is-active {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: #fff;
+}
+.article-filter__empty {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  padding: 24px 0;
+  text-align: center;
+}
 
 /* ==========================================================================
    基礎知識（補助セクション：控えめなリスト表示）

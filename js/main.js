@@ -30,4 +30,37 @@
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+  // 全記事一覧ページ：カテゴリ絞り込み
+  var articleFilter = document.querySelector("[data-article-filter]");
+  var articleGrid = document.querySelector("[data-article-grid]");
+  if (articleFilter && articleGrid) {
+    var filterButtons = articleFilter.querySelectorAll("[data-filter]");
+    var articleCards = articleGrid.querySelectorAll("[data-category]");
+    var emptyMessage = document.querySelector("[data-article-empty]");
+
+    articleFilter.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-filter]");
+      if (!btn) return;
+
+      var target = btn.getAttribute("data-filter");
+      var visibleCount = 0;
+
+      for (var i = 0; i < filterButtons.length; i++) {
+        var isActive = filterButtons[i] === btn;
+        filterButtons[i].classList.toggle("is-active", isActive);
+        filterButtons[i].setAttribute("aria-pressed", isActive ? "true" : "false");
+      }
+
+      for (var j = 0; j < articleCards.length; j++) {
+        var match = target === "all" || articleCards[j].getAttribute("data-category") === target;
+        articleCards[j].hidden = !match;
+        if (match) visibleCount++;
+      }
+
+      if (emptyMessage) {
+        emptyMessage.hidden = visibleCount !== 0;
+      }
+    });
+  }
 })();
