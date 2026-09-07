@@ -71,11 +71,6 @@
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://ponpon-ux.github.io/syokumou/ads/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
     <loc>https://ponpon-ux.github.io/syokumou/contact/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

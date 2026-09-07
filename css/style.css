@@ -506,6 +506,10 @@ li { margin-bottom: 0.4em; }
   font-size: 0.85rem;
   color: var(--color-text-muted);
 }
+.ad-slot__body img {
+  display: block;
+  margin: 0 auto;
+}
 .ad-slot__body code {
   display: block;
   margin-top: 8px;
@@ -1150,6 +1154,54 @@ li { margin-bottom: 0.4em; }
   font-size: 0.9rem;
   padding: 24px 0;
   text-align: center;
+}
+
+/* ==========================================================================
+   固定CTAボタン（記事下部に貼り付く公式サイトリンク）
+   ========================================================================== */
+
+.sticky-cta {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  background: var(--color-accent-dark);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+.sticky-cta:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+.sticky-cta__break {
+  display: inline;
+}
+
+@media (max-width: 639px) {
+  .sticky-cta {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+    white-space: normal;
+    padding: 10px 16px;
+    line-height: 1.4;
+  }
+  .sticky-cta__break {
+    display: block;
+  }
+  body.has-sticky-cta {
+    padding-bottom: 64px;
+  }
 }
 
 /* ==========================================================================

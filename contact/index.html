@@ -75,7 +75,7 @@
   <div class="container page-body">
     <p>
       掲載内容に関するご指摘、広告掲載に関するご相談、その他お問い合わせは、
-      以下のフォームまたはメールにてご連絡ください。内容を確認のうえ、対応が必要な場合は
+      以下のフォームにてご連絡ください。内容を確認のうえ、対応が必要な場合は
       折り返しご連絡いたします。返信までお時間をいただく場合があります。
     </p>
 
@@ -87,13 +87,9 @@
       </p>
     </div>
 
-    <div class="placeholder-note">
-      本フォームは静的サイトのためそのままでは送信できません。実際に運用する際は、
-      Googleフォーム／Formspree／Netlify Forms などの外部フォームサービス、または
-      サーバーサイドの送信処理と連携してください（<code>&lt;form&gt;</code>の<code>action</code>属性を設定）。
-    </div>
-
-    <form action="#" method="post">
+    <form action="https://formspree.io/f/xnpqgzlr" method="POST">
+      <input type="hidden" name="_subject" value="【自毛植毛の手引き】お問い合わせがありました">
+      <input type="text" name="_gotcha" style="display:none">
       <div class="form-group">
         <label for="name">お名前<span class="required">必須</span></label>
         <input type="text" id="name" name="name" required>
@@ -117,12 +113,6 @@
       </div>
       <button type="submit" class="btn">送信する</button>
     </form>
-
-    <h2>メールでのお問い合わせ</h2>
-    <p>
-      フォームをご利用いただけない場合は、下記アドレス宛にご連絡ください。<br>
-      【contact@example.com（実際の連絡先メールアドレスに差し替えてください）】
-    </p>
   </div>
 </main>
 
@@ -132,8 +122,7 @@
       <div class="footer-col__title">サイトについて</div>
       <ul>
         <li><a href="/syokumou/about/">運営者情報</a></li>
-        <li><a href="/syokumou/ads/">広告について</a></li>
-        <li><a href="/syokumou/privacy/">プライバシーポリシー</a></li>
+        <li><a href="/syokumou/privacy/">プライバシーポリシー・広告掲載について</a></li>
         <li><a href="/syokumou/contact/">お問い合わせ</a></li>
       </ul>
     </div>
@@ -142,7 +131,7 @@
     本サイトは医療機関ではなく、医師・医療従事者による医学的助言を提供するものではありません。
     掲載内容は情報提供を目的としており、治療の効果や結果を保証するものではありません。
     実際の治療をご検討の際は、必ず医療機関で医師の診察・説明を受けたうえでご判断ください。
-    記事内には広告・アフィリエイトリンクを含む場合があります（詳細は<a href="/syokumou/ads/">広告について</a>）。
+    記事内には広告・アフィリエイトリンクを含む場合があります（詳細は<a href="/syokumou/privacy/">広告について</a>）。
   </p>
   <p class="footer-bottom">&copy; <span data-current-year>2026</span> 自毛植毛の手引き</p>
 </footer>
