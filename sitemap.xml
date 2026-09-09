@@ -56,6 +56,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://shokumou-tebiki.com/clinics/tokyo-shokumou-clinic-doctor.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/tokyo-shokumou-clinic-founder.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/usugenomadoguchi.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/esteworld.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://shokumou-tebiki.com/about/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
