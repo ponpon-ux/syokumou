@@ -1335,3 +1335,44 @@ li { margin-bottom: 0.4em; }
     text-align: right;
   }
 }
+
+/* ==========================================================================
+   クリニックCTA共通コンポーネント（js/clinic-cta.js が /data/clinics.json を
+   もとに描画する）。提携済み（広告）／未提携（通常リンク）を視覚的にも区別する。
+   ========================================================================== */
+.clinic-cta {
+  margin: 1.6em 0;
+}
+.clinic-cta__btn {
+  display: inline-block;
+}
+.clinic-cta__note {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+.clinic-cta--affiliate .clinic-cta__note {
+  color: var(--color-ad-label);
+}
+
+/* クリニック一覧カードのミニ情報行（料金・術式・地域など、JSONから動的描画） */
+.clinic-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin: 8px 0 10px;
+  padding: 0;
+  list-style: none;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+}
+.clinic-facts li {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+}
+.clinic-facts .badge--affiliate {
+  background: var(--color-badge-clinic-bg);
+  color: var(--color-badge-clinic-text);
+  font-weight: 700;
+}

@@ -76,6 +76,56 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://shokumou-tebiki.com/clinics/kamino-clinic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/ask-inoue-clinic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/shinwa-clinic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/almo-clinic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/sbc-shonan-clinic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/island-tower-clinic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/ark-clinic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/torimodosu-center.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/riveia-clinic.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/tokyo-shokumou-biyougeka.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://shokumou-tebiki.com/about/</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

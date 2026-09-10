@@ -1,0 +1,1080 @@
+{
+  "meta": {
+    "description": "自毛植毛の手引き サイト共通クリニックデータベース。個別記事・クリニック一覧・今後の比較/診断コンテンツから共通で参照する一次データ。",
+    "schema_version": "1.0",
+    "last_updated": "2026-09-10",
+    "field_notes": {
+      "clinic_id": "サイト内で一意のID。articles/clinics HTML側の data-clinic-cta 属性等と対応させる。",
+      "affiliate_status": "true=提携済み（CTAに広告リンクを表示してよい） / false=未提携（CTAは公式サイトへの通常リンクのみ）。評価内容とは独立させること。",
+      "affiliate_url": "提携済みの場合のみ有効なURLを入れる。未提携はnull。",
+      "affiliate_notes": "提携の経緯・既存コードでの利用状況などのメモ。捏造禁止。",
+      "pricing": "料金は『通常料金』『モニター料金』を必ず分けて保持する。確認できない金額は null。誰でも同じ計算ができるよう calculation_note に算出方法を明記する。",
+      "unknown_value": "確認できない項目は null（文字列が必要な場合は \"確認できない\"）を用いる。推測値を入れない。",
+      "information_sources": "一次情報（公式サイト）のURLと確認日を配列で保持。第三者情報を使った場合は type:\"third_party\" を付ける。"
+    }
+  },
+  "clinics": [
+    {
+      "clinic_id": "tokyo-shokumou-clinic",
+      "clinic_name": "東京植毛クリニック",
+      "slug": "tokyo-shokumou-clinic",
+      "article_url": "/clinics/tokyo-shokumou-clinic.html",
+      "official_url": "https://tokyo-shokumou.jp/",
+
+      "affiliate_status": true,
+      "affiliate_url": "https://px.a8.net/svt/ejp?a8mat=4BC4QX+9XTJCI+5VSG+5YRHE",
+      "affiliate_banner_url": "https://px.a8.net/svt/ejp?a8mat=4BC4QX+9XTJCI+5VSG+5YZ75",
+      "affiliate_banner_img": "https://www21.a8.net/svt/bgt?aid=260906505601&wid=001&eno=01&mid=s00000027448001003000&mc=1",
+      "affiliate_asp": "A8.net",
+      "affiliate_cta_text": "東京植毛クリニック公式サイトを見る",
+      "affiliate_notes": "既存記事（clinics/tokyo-shokumou-clinic.html 等5ファイル）に直接記載されていたA8.netリンクをそのまま記録したもの。成果条件・単価等の契約詳細はコード上確認できないため、リンクURLの転記に留めている。既存HTMLの広告表示ロジック自体は今回変更していない。",
+
+      "locations": [
+        { "name": "東京院", "address": "東京都港区芝大門（詳細番地は公式サイト所在地ページで要確認）", "note": "公式サイトで確認できた運営会社所在エリア情報に基づく。詳細住所は未確認" }
+      ],
+      "clinic_count": null,
+
+      "doctors": [
+        {
+          "name": "氏家優斗",
+          "role": "院長",
+          "bio": "確認できない",
+          "credentials": "確認できない",
+          "hair_transplant_experience": "確認できない",
+          "source_note": "公式サイトに院長として氏名の記載を確認。経歴の詳細は既存記事(tokyo-shokumou-clinic-doctor.html)で個別調査済みだが未確定情報が多い"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["FUE（丸刈り自毛植毛）", "FUE（部分刈り自毛植毛）"],
+        "unique_method_name": null,
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": null,
+        "hairline_transplant": null,
+        "large_volume_supported": true,
+        "large_volume_note": "植え放題プラン上限は2025年4月以降で約2,554株（公式サイト記載、随時更新の注記あり）"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "tax_note": "公式サイトの表記「税込」を確認",
+        "base_price": 220000,
+        "graft_price": { "shaved": 900, "unshaven": 980, "unit": "円/グラフト" },
+        "unlimited_plan_graft_portion": 1270000,
+        "unlimited_plan_total": 1490000,
+        "unlimited_plan_threshold_grafts": { "shaved": 1411, "unshaven": 1295 },
+        "price_500": { "shaved": 670000, "unshaven": 710000 },
+        "price_1000": { "shaved": 1120000, "unshaven": 1200000 },
+        "price_1500": { "shaved": 1490000, "unshaven": 1490000 },
+        "price_2000": { "shaved": 1490000, "unshaven": 1490000, "calculation_note": "公式費用表に2000グラフトの明示はないが、1,500〜2,554グラフトの範囲は植え放題プラン総額1,490,000円が適用されるため算出。実際の必要グラフト数はカウンセリングで要確認" },
+        "monitor_price": null,
+        "other_required_costs": null,
+        "campaign_price": null,
+        "calculation_note": "通常プラン＝基本料金220,000円＋グラフト単価×株数。植え放題プランは一定株数（丸刈り1,411株・部分刈り1,295株）以上で総額1,490,000円に固定。",
+        "source_note": "公式料金ページ（2026年9月2日確認）記載の費用例をそのまま転記"
+      },
+
+      "support": {
+        "travel_support": "一部負担",
+        "accommodation_support": "一部負担",
+        "online_consultation": true,
+        "aftercare": "年間12回の無料フォローアップ検診（来院またはオンライン）",
+        "warranty": "保証オプション：施術費用の20%（適用条件の詳細は公式サイトの記載のみでは不明）"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": null,
+        "note": "確認できない"
+      },
+
+      "key_features": [
+        "基本料金＋グラフト単価のシンプルな料金構造",
+        "一定株数以上で総額が変わらない植え放題プランがある",
+        "初診・オンライン相談無料、年12回の無料フォローアップ検診"
+      ],
+      "recommended_for": ["丸刈りで1,411株以上、部分刈りで1,295株以上のまとまった株数を検討している人"],
+      "not_recommended_for": ["500株前後など少ない株数を希望する人（通常プランの方が総額を抑えられる場合がある）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://tokyo-shokumou.jp/price/", "desc": "料金ページ", "last_verified": "2026-09-02" },
+        { "type": "official", "url": "https://tokyo-shokumou.jp/", "desc": "公式サイトトップ・特徴紹介", "last_verified": "2026-09-02" }
+      ],
+      "last_verified": "2026-09-02"
+    },
+    {
+      "clinic_id": "kamino-clinic",
+      "clinic_name": "カミノクリニック",
+      "slug": "kamino-clinic",
+      "article_url": "/clinics/kamino-clinic.html",
+      "official_url": "https://camino-clinic.jp/",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "銀座院", "address": "東京都中央区銀座7丁目4-15 RBM銀座ビル2階", "type": "直営" },
+        { "name": "品川院", "address": "東京都港区芝浦3丁目15-6 島倉田町ビル4階〜6階", "type": "直営" },
+        { "name": "名古屋院", "address": "愛知県名古屋市中村区名駅3丁目20-1 サンシャイン名駅ビル7階", "type": "直営" },
+        { "name": "提携院（エミナルクリニックメンズ心斎橋院）", "address": "大阪府大阪市中央区西心斎橋2-1-25 心斎橋W-Place 3階", "type": "提携" },
+        { "name": "提携院（エミナルクリニックメンズ福岡天神院）", "address": "福岡県福岡市中央区大名1丁目14-45 QizTENJIN 3階", "type": "提携" }
+      ],
+      "clinic_count": 5,
+
+      "doctors": [
+        {
+          "name": "複数医師体制（横張憲二、山口和樹、永嶋郁夫、阿部憲久、塗隆、葛西嘉亮、田代直樹、田澤克之の8名を公式サイトで確認）",
+          "role": "確認できない（院長の明記なし）",
+          "bio": "確認できない",
+          "credentials": "山口和樹：皮膚科専門医／阿部憲久・塗隆・葛西嘉亮：形成外科専門医／田代直樹：麻酔科専門医（公式サイト記載）",
+          "hair_transplant_experience": "「自毛植毛手術執刀歴20年以上のベテラン専門医師」が独自技術を開発、との記載のみで個々の経験年数は確認できない",
+          "source_note": "葛西嘉亮医師の経歴（元アイランドタワークリニック出身等）は第三者サイト情報であり、公式サイトでは確認できないため採用していない"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["カミクリ式自毛植毛（独自名称）"],
+        "unique_method_name": "カミクリ式植毛術／独自開発機器CFUシステム",
+        "shaved_fue": null,
+        "unshaven_fue": null,
+        "female_supported": null,
+        "hairline_transplant": true,
+        "hairline_note": "料金メニューに「生え際：800株〜」区分あり",
+        "large_volume_supported": null,
+        "large_volume_note": "「多くの株移植にも対応できる体制」との記載のみで具体的な上限株数は確認できない"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": null,
+        "graft_price": null,
+        "price_500": null,
+        "price_1000": null,
+        "price_1500": null,
+        "price_2000": null,
+        "monitor_price": null,
+        "other_required_costs": null,
+        "campaign_price": null,
+        "menu_pricing": [
+          { "menu": "浅いM字", "grafts_from": 500, "price_total": 495000 },
+          { "menu": "生え際", "grafts_from": 800, "price_total": 660000 },
+          { "menu": "頭頂部", "grafts_from": 1000, "price_total": 770000 },
+          { "menu": "深いM字", "grafts_from": 1200, "price_total": 880000 },
+          { "menu": "前頭部", "grafts_from": 1500, "price_total": 1045000 }
+        ],
+        "calculation_note": "公式料金ページは部位別メニュー（浅いM字/生え際/頭頂部/深いM字/前頭部）ごとの『◯株〜、一括◯円〜』という表示のみで、基本料金とグラフト単価が分離公表されていない。そのため500/1000/1500/2000株ちょうどの総額を式で算出することができず、null としている。月々金額は頭金20万円・医療ローン84回分割条件での参考値。",
+        "source_note": "公式料金ページ（2026年9月10日確認）"
+      },
+
+      "support": {
+        "travel_support": "全額支給（施術決定者対象）",
+        "accommodation_support": "20,000円まで支給",
+        "online_consultation": null,
+        "aftercare": "確認できない",
+        "warranty": "確認できない"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "症例写真ページ（/cases/）が存在し複数症例を確認。累計症例数の公式記載は確認できない"
+      },
+
+      "key_features": [
+        "独自名称「カミクリ式植毛術」と専用機器CFUシステムを訴求",
+        "部位別のパッケージ料金メニュー（浅いM字・生え際・頭頂部・深いM字・前頭部）",
+        "交通費全額支給・宿泊費2万円まで支給"
+      ],
+      "recommended_for": ["部位ごとのパッケージ料金で総額の見通しを立てたい人"],
+      "not_recommended_for": ["刈り上げの要否や術式の分類（FUE/FUT）を事前に明確な形で確認したい人（公式サイトの記載だけでは判断しづらい）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://camino-clinic.jp/", "desc": "トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://camino-clinic.jp/clinics/", "desc": "クリニック一覧", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://camino-clinic.jp/fee/", "desc": "自毛植毛の費用", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://camino-clinic.jp/fee/monitor/", "desc": "モニター募集", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://camino-clinic.jp/about/", "desc": "当院について・医師紹介", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://camino-clinic.jp/cases/", "desc": "症例写真", "last_verified": "2026-09-10" },
+        { "type": "third_party", "url": "https://hairclinicnavi.com/camino-clinic-doctor/", "desc": "医師経歴に関する第三者記事（本文では不採用、参考のみ）", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "ask-inoue-clinic",
+      "clinic_name": "アスク井上クリニック",
+      "slug": "ask-inoue-clinic",
+      "article_url": "/clinics/ask-inoue-clinic.html",
+      "official_url": "https://www.asc-cl.jp/",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "新宿院", "address": "東京都新宿区（詳細番地は公式トップページ本文では確認できない）", "type": "直営" }
+      ],
+      "clinic_count": 1,
+
+      "doctors": [
+        {
+          "name": "井上浩一",
+          "role": "院長",
+          "bio": "熊本大学医学部卒業。熊本大学医学部附属病院勤務後、1989年に大手美容整形外科クリニック本院勤務、1998年に都内美容外科クリニックで院長就任、2002年にアイランドタワークリニックを開院、2014年にアスク井上クリニックを開院。",
+          "credentials": "確認できない（専門医資格の具体名は公式サイト本文で確認できず）",
+          "hair_transplant_experience": "「メスを使用しない自毛植毛FUEを更に進化させたパワードFUE」（i-SAFE、i-ダイレクト）の開発者を自称。植毛実績累計15,000症例以上と公式記載。",
+          "source_note": "累計15,000症例以上は公式サイト（/about/dr/）記載の自己申告値であり、第三者機関による検証の有無は確認できない"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["i-SAFEスタンダード（刈り上げ型FUE系）", "アンシェーブンi-SAFE（非刈り上げ型）", "ハイブリッドi-SAFE"],
+        "unique_method_name": "i-SAFE／アンシェーブンi-SAFE／ハイブリッドi-SAFE",
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": true,
+        "female_note": "「アスク井上クリニック for women」を別サイトで運営。ネイプヘア移植など女性向けメニューの記載あり",
+        "hairline_transplant": true,
+        "hairline_note": "生え際デザインへの言及、生え際症例が複数掲載",
+        "large_volume_supported": true,
+        "large_volume_note": "「最大4,000〜4,500グラフト程度を1日で」との記載（ページ間で数値にやや差異あり）"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": 220000,
+        "graft_price": { "shaved": 880, "unshaven": 1430, "unit": "円/グラフト（税込）" },
+        "price_500": { "shaved": 660000, "unshaven": 935000 },
+        "price_1000": { "shaved": 1100000, "unshaven": 1650000 },
+        "price_1500": { "shaved": 1540000, "unshaven": 2365000 },
+        "price_2000": { "shaved": 1980000, "unshaven": 3080000 },
+        "monitor_price": {
+          "price_500": { "shaved": 462000, "unshaven": 654500 },
+          "price_1000": { "shaved": 770000, "unshaven": 1155000 },
+          "price_1500": { "shaved": 1078000, "unshaven": 1655500 },
+          "price_2000": { "shaved": 1386000, "unshaven": 2156000 },
+          "note": "公式「フルフェイスモニター：30%オフ」に基づき通常料金×0.7で算出"
+        },
+        "other_required_costs": null,
+        "other_required_costs_note": "「表示料金以外に追加費用はありません」「血液検査は無料」と公式記載。薬剤処方時は別途費用が発生する場合ありとの注記あり",
+        "campaign_price": null,
+        "calculation_note": "基本治療費220,000円（税込）＋グラフト単価（税込）×株数で算出。公式料金表の実例（800グラフト＝924,000円、1,500グラフト＝1,540,000円/2,365,000円、2,000グラフト＝1,980,000円/3,080,000円）と完全に一致することを確認済み。",
+        "source_note": "公式料金ページ（2026年9月10日確認）"
+      },
+
+      "support": {
+        "travel_support": "制度あり（当院で手術を受ける方が対象、具体的な上限額は確認できない）",
+        "accommodation_support": "制度あり（同上、具体的な上限額は確認できない）",
+        "online_consultation": true,
+        "aftercare": "翌日の包帯除去・初回洗髪、術後6ヶ月・1年後の定期検診。検診時の追加費用なしと明記",
+        "warranty": "正式な保証制度としての明記は確認できない（院長見解として『ちゃんとやれれば90%程度の生着は期待できる』という一般論的言及のみ）"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "症例ページに多数の男女症例を確認（ページネーション1〜10）。総掲載件数の明記は確認できない"
+      },
+
+      "key_features": [
+        "刈り上げ型（i-SAFE）と非刈り上げ型（アンシェーブンi-SAFE）を選べる",
+        "女性専門サイトを別運営し、女性向け植毛に対応",
+        "モニター価格（通常の30%オフ）が公式に明記されている"
+      ],
+      "recommended_for": ["刈り上げずに施術したい人", "生え際や女性の薄毛に対応してくれる院を探している人"],
+      "not_recommended_for": ["交通費・宿泊費補助の具体的な金額を事前に把握してから検討したい人（上限額の公式記載なし）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://www.asc-cl.jp/", "desc": "トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.asc-cl.jp/cost/", "desc": "自毛植毛の費用・料金について", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.asc-cl.jp/cost/subsidy/", "desc": "交通費・宿泊費補助制度について", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.asc-cl.jp/about/dr/", "desc": "自毛植毛の名医紹介", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.asc-cl.jp/medical/woman/", "desc": "女性のための薄毛治療", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.asc-cl.jp/medical/advantage", "desc": "切らない自毛植毛i-SAFEとは", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.asc-cl.jp/case/", "desc": "症例一覧", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "shinwa-clinic",
+      "clinic_name": "親和クリニック",
+      "slug": "shinwa-clinic",
+      "article_url": "/clinics/shinwa-clinic.html",
+      "official_url": "https://shinwa-clinic.jp/",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "新宿本院", "address": "東京都新宿区新宿2-12-4 アコード新宿5F", "type": "直営" },
+        { "name": "銀座院", "address": "東京都中央区銀座7-3-7 ブランエスパ銀座3F", "type": "直営" },
+        { "name": "新宿西口院", "address": "東京都新宿区西新宿1-22-1 スタンダードビル3F", "type": "直営" },
+        { "name": "大阪院", "address": "大阪府大阪市北区曽根崎新地1-4-20 桜橋IMビル3F", "type": "直営" },
+        { "name": "名古屋院", "address": "愛知県名古屋市西区名駅2-34-20 CK23名駅前ビル6F", "type": "直営" },
+        { "name": "福岡院", "address": "福岡県福岡市博多区博多駅前3-30-1 タイセイビル7F", "type": "直営" }
+      ],
+      "clinic_count": 6,
+
+      "doctors": [
+        {
+          "name": "音田正光",
+          "role": "総院長",
+          "bio": "確認できない（個別の学歴・経歴詳細は医師紹介ページに掲載なし）",
+          "credentials": "確認できない",
+          "hair_transplant_experience": "確認できない（個人の経験年数・症例数の明記なし）",
+          "source_note": "各院院長として中山樹一郎（福岡院）、滝田賢一（大阪院）、福島俊彦（名古屋院）、安藤善郎（銀座院）、図師伸一郎（新宿西口院）の氏名を公式サイトで確認。個別の経歴詳細は確認できない"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["MIRAI法（刈り上げ）", "NC-MIRAI法（刈り上げない）", "United-MIRAI法（併用）"],
+        "unique_method_name": "MIRAI法／NC-MIRAI法／United-MIRAI法",
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": true,
+        "female_note": "女性専門サイト「親和クリニックレディース」を別運営",
+        "hairline_transplant": true,
+        "large_volume_supported": true,
+        "large_volume_note": "「1回5,000株以上の移植も可能」と公式記載"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": { "mirai": 220000, "nc_mirai": 330000, "united_mirai": 275000 },
+        "graft_price": { "mirai": 990, "nc_mirai": 2200, "united_mirai": "990円／2,200円（併用のため2種類）", "unit": "円/グラフト（税込）" },
+        "price_500": { "mirai": 715000, "nc_mirai": 1430000 },
+        "price_1000": { "mirai": 1210000, "nc_mirai": 2530000 },
+        "price_1500": { "mirai": 1705000, "nc_mirai": 3630000 },
+        "price_2000": { "mirai": 2200000, "nc_mirai": 4730000 },
+        "monitor_price": null,
+        "monitor_note": "モニター募集ページは存在するが具体的な割引額の公式記載は確認できない",
+        "other_required_costs": { "カバーシート利用時": 66000 },
+        "campaign_price": null,
+        "calculation_note": "公式サイトに500/1000/1500/2000株の一覧表は存在しないため、基本治療費＋グラフト単価×株数で試算した参考値（公式明記の金額ではない）。",
+        "source_note": "新宿本院価格ページ（2026年9月10日確認）"
+      },
+
+      "support": {
+        "travel_support": null,
+        "accommodation_support": null,
+        "support_note": "遠方患者向け案内ページは存在するが、内容は近隣ホテル紹介のみで金銭補助の記載は確認できない",
+        "online_consultation": true,
+        "aftercare": "術後翌日の専任スタッフによる洗髪サービス、定期的な経過観察（頻度の詳細な公式記載は限定的）",
+        "warranty": "確認できない（保証制度の明記なし）"
+      },
+
+      "cases": {
+        "official_case_count": 13000,
+        "official_case_count_note": "「のべ執刀数13,000件以上」（2014年10月〜2025年11月累計、年別内訳も公式ページに記載：2023年1,586件／2024年1,553件／2025年1,530件等）",
+        "official_case_photos": true,
+        "note": null
+      },
+
+      "key_features": [
+        "刈り上げ（MIRAI法）と刈り上げない（NC-MIRAI法）を選べ、両方を併用するUnited-MIRAI法もある",
+        "全国6院＋女性専門サイトを展開",
+        "公式に「のべ執刀数13,000件以上」という累計実績を開示している"
+      ],
+      "recommended_for": ["全国に院があるため通いやすい場所を選びたい人", "累計実績の開示を重視する人"],
+      "not_recommended_for": ["交通費・宿泊費の金銭補助を重視する人（案内はホテル紹介のみで金銭補助の記載なし）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://shinwa-clinic.jp/", "desc": "トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shinwa-shinjuku.jp/price/jimou/", "desc": "新宿本院 価格ページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shinwa-clinic.jp/about/doctor_introduction/", "desc": "医師紹介", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shinwa-clinic.jp/about/infographics/", "desc": "数字で見る親和クリニック", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shinwa-clinic.jp/price/monitor/", "desc": "モニター募集", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shinwa-clinic.jp/price/subsidy/", "desc": "遠方患者向け案内", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shinwa-clinic.jp/medical/mirai/", "desc": "MIRAI法について", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "almo-clinic",
+      "clinic_name": "アルモ形成クリニック",
+      "slug": "almo-clinic",
+      "article_url": "/clinics/almo-clinic.html",
+      "official_url": "https://almoprs-clinic.jp/",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "秋葉原院", "address": "東京都千代田区神田松永町104 TSKビル4階", "type": "直営" }
+      ],
+      "clinic_count": 1,
+
+      "doctors": [
+        {
+          "name": "内田直宏",
+          "role": "院長",
+          "bio": "2015年筑波大学医学群医学類卒業。筑波大学附属病院等での研修を経て、都立広尾病院・多摩総合医療センター等の形成外科に勤務。2022年よりアスク井上クリニック移植毛髪外科に常勤勤務し、2023年9月にアルモ形成クリニックを開院。",
+          "credentials": "日本形成外科学会、国際毛髪外科学会（ISHRS full member）、日本美容外科学会（JSAPS/JSAS）所属。専門医資格名の明記は確認できない",
+          "hair_transplant_experience": "2022年からアスク井上クリニックで自毛植毛の執刀経験を積んだ後に開院",
+          "source_note": "「年間200症例以上執刀」との情報は検索エンジン要約経由で原文の直接確認ができていないため参考情報扱い"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["アルモHi-STANDARD法（刈り上げ）", "アルモUn-SHAVEN法（刈り上げない）"],
+        "unique_method_name": "アルモHi-STANDARD法／アルモUn-SHAVEN法",
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": true,
+        "female_note": "公式症例紹介に50代女性の症例掲載を確認",
+        "hairline_transplant": true,
+        "large_volume_supported": true,
+        "large_volume_note": "3,100グラフトの症例を公式サイトで確認"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": 205000,
+        "graft_price": { "shaved": 1078, "unshaven": 1870, "unit": "円/グラフト（税込）" },
+        "price_500": { "shaved": 744000, "unshaven": 1140000 },
+        "price_1000": { "shaved": 1283000, "unshaven": 2075000 },
+        "price_1500": { "shaved": 1822000, "unshaven": 3010000 },
+        "price_2000": { "shaved": 2361000, "unshaven": 3945000 },
+        "monitor_price": null,
+        "monitor_note": "モニター募集の告知記事は複数確認できるが、割引後の具体的な金額は一次ページで直接確認できておらず要再確認",
+        "other_required_costs": { "血液検査": 11000, "ヘアシート装着・取外し（オプション）": 54780 },
+        "campaign_price": null,
+        "calculation_note": "公式サイトに500/1000/1500/2000株の一覧表は存在しないため、基本料金＋グラフト単価×株数で試算した参考値（血液検査費等は含まない、公式明記の金額ではない）。",
+        "source_note": "料金ページ・FAQ（2026年9月10日確認）"
+      },
+
+      "support": {
+        "travel_support": "関東圏外からの患者対象、最大往復30,000円（普通席のみ、本人1名限定）",
+        "accommodation_support": "対象外（宿泊費補助なし、と公式FAQに明記）",
+        "online_consultation": true,
+        "aftercare": "術後翌日からの洗髪可、湯船は1週間控える、パーマは術後1ヶ月以降",
+        "warranty": "術後1年時点で生着不良と医師が判断した株の再手術を保証。麻酔・物品実費は患者負担、1年検診から1ヶ月以内の申告が条件"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "症例紹介ページに個別症例記事（グラフト数・年代・部位を明記）が複数掲載。累計症例数の公式明記は確認できない"
+      },
+
+      "key_features": [
+        "1年保証（生着不良と判断された株の再手術）を公式FAQに明記",
+        "関東圏外の患者向けに交通費補助（最大往復3万円）を明記",
+        "3,100グラフトなど大量植毛の症例を公開している"
+      ],
+      "recommended_for": ["保証条件が明文化されているクリニックを重視する人", "関東圏外から通院し交通費補助を受けたい人"],
+      "not_recommended_for": ["宿泊費まで補助してほしい人（宿泊費補助は対象外と明記されている）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://almoprs-clinic.jp/", "desc": "トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://almoprs-clinic.jp/transplant-menu/", "desc": "植毛メニュー・料金", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://almoprs-clinic.jp/faq/", "desc": "よくある質問", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://almoprs-clinic.jp/staff/biography/", "desc": "内田医師の略歴", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://almoprs-clinic.jp/category/case/", "desc": "症例紹介一覧", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "riveia-clinic",
+      "clinic_name": "リヴァイアクリニック",
+      "slug": "riveia-clinic",
+      "article_url": "/clinics/riveia-clinic.html",
+      "official_url": "https://reveir-clinic.com/",
+      "official_name_note": "公式サイト上の表記は「Reveir（リヴァイア）クリニック」。別クリニック「リヴィエラクリニック」等との混同はないことを確認済み。",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "銀座院", "address": "東京都中央区銀座2-4-18 ALBORE GINZA 3階", "type": "直営" }
+      ],
+      "clinic_count": 1,
+
+      "doctors": [
+        {
+          "name": "坂本有孝",
+          "role": "院長",
+          "bio": "2000年3月久留米大学医学部卒業。久留米大学病院形成外科勤務を経て、大手植毛クリニック福岡院で勤務・院長・本院院長を歴任し、2025年11月にReveirクリニックを開院。",
+          "credentials": "日本専門医機構 形成外科専門医、医学博士、日本臨床毛髪学会会員",
+          "hair_transplant_experience": "「17年間の植毛経験」「約3,500例の手術実績」と公式記載（自己申告値。前職での実績を含む可能性が高く、Reveirクリニック単体の症例数ではない）",
+          "source_note": "その他在籍医師として澤田昌典（内科医・医学博士）、坂田憲亮（形成外科専門医・指導医、臨床経験14年）の氏名を公式サイトで確認"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["スタンダード法（刈り上げ）", "ノンシェーブン法（刈り上げない）", "デュアル法（併用）"],
+        "unique_method_name": "スタンダード法／ノンシェーブン法／デュアル法（CFUシステム使用）",
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": true,
+        "female_note": "女性の薄毛・瘢痕性脱毛にも対応と明記。FAQでは患者比率「男性9割・女性1割」との言及あり",
+        "hairline_transplant": true,
+        "large_volume_supported": true,
+        "large_volume_note": "料金表に3,000グラフト（スタンダード法）までの単価が明記されている"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": 220000,
+        "graft_price": { "shaved": 880, "unshaven": 1430, "unit": "円/グラフト（税込）" },
+        "price_500": { "shaved": 660000, "unshaven": 935000 },
+        "price_1000": { "shaved": 1100000, "unshaven": 1650000 },
+        "price_1500": { "shaved": 1540000, "unshaven": 2365000 },
+        "price_2000": { "shaved": 1980000, "unshaven": 3080000 },
+        "price_2500_shaved_only": 2420000,
+        "price_3000_shaved_only": 2860000,
+        "monitor_price": null,
+        "monitor_note": "モニター料金の記載は確認できない",
+        "other_required_costs": null,
+        "other_required_costs_note": "麻酔費・血液検査費の別途要否は確認できない",
+        "campaign_price": null,
+        "discounts": ["紹介・ペア割引10%OFF（併用不可）", "学生割引10%OFF（併用不可）"],
+        "calculation_note": "公式料金ページに100G〜3,000Gの実額表が明記されており、上記500/1000/1500/2000グラフトの金額はその表からの転記（試算ではない）。",
+        "source_note": "料金ページ（2026年9月10日確認）"
+      },
+
+      "support": {
+        "travel_support": "手術費用の3%を一律補助",
+        "accommodation_support": null,
+        "support_note": "宿泊費補助の記載は確認できない",
+        "online_consultation": null,
+        "aftercare": "「適切なアフターケアが定着を助ける」との記載のみで、具体的な内容（洗髪指導・通院頻度等）は確認できない",
+        "warranty": "確認できない（保証制度の記載なし）"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "症例ページにCase01〜05の5症例を掲載。院単体の累計症例数の明記は確認できない"
+      },
+
+      "key_features": [
+        "銀座1院に絞った運営で、院長は他院での院長経験を経て2025年11月に開院",
+        "交通費補助（手術費用の3%）や紹介・学生割引を公式に明記",
+        "料金表が100グラフト刻みで3,000グラフトまで明記されている"
+      ],
+      "recommended_for": ["紹介割引・学生割引を活用したい人", "3,000グラフト級の大量植毛の料金目安を事前に知りたい人"],
+      "not_recommended_for": ["開院間もない（2025年11月開院）ため、自院単体の長期実績を重視する人"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://reveir-clinic.com/", "desc": "トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://reveir-clinic.com/clinic.html", "desc": "クリニック紹介・医師経歴", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://reveir-clinic.com/price.html", "desc": "料金・サポートプラン", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://reveir-clinic.com/case.html", "desc": "症例", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://reveir-clinic.com/faq.html", "desc": "よくある質問", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://reveir-clinic.com/contents/hairlinetransplant/", "desc": "生え際植毛コラム", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "tokyo-shokumou-biyougeka",
+      "clinic_name": "東京植毛美容外科",
+      "slug": "tokyo-shokumou-biyougeka",
+      "article_url": "/clinics/tokyo-shokumou-biyougeka.html",
+      "official_url": "https://shokumo.tokyo/",
+      "official_name_note": "既存記事で扱う「東京植毛クリニック」（tokyo-shokumou.jp／esteworld提携）とは別のクリニック。混同しないよう名称・URLを明確に区別すること。",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "新富町院", "address": "東京都中央区新富1丁目5-12 エスパシオ3F", "type": "直営" }
+      ],
+      "clinic_count": 1,
+
+      "doctors": [
+        {
+          "name": "佐藤文仁",
+          "role": "院長",
+          "bio": "2018年3月琉球大学医学部卒業。日高病院、アスク井上クリニック、YGメディカルクリニックを経て2023年11月に東京植毛美容外科の院長に就任。",
+          "credentials": "国際毛髪外科学会（ISHRS）associate member、日本臨床毛髪学会会員",
+          "hair_transplant_experience": "「2020年4月から植毛手術に携わり、2026年2月までに凡そ1,000症例」と公式記載。年別実績も開示（2020年200件、2021年220件、2022年150件、2023年135件、2024年132件、2025年170件、2026年1〜2月30件）。自己申告値であり第三者による裏付けは確認できない",
+          "source_note": null
+        }
+      ],
+
+      "procedures": {
+        "methods": ["ツーブロックカット（刈り上げ）", "ハイドカット（刈り上げない）", "ノーカット（刈り上げない）", "ロングヘア（刈り上げない）"],
+        "unique_method_name": "採取方式を4種類（ツーブロックカット／ハイドカット／ノーカット／ロングヘア）から選択。植込みはラインスリット、Choi式・DHI法（インプランターペン使用）",
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "unshaven_note": "ハイドカット・ノーカット・ロングヘアの3種類が刈り上げなしに対応",
+        "female_supported": null,
+        "female_note": "女性患者の受け入れ可否について明確な記載は確認できない",
+        "hairline_transplant": true,
+        "large_volume_supported": true,
+        "large_volume_note": "料金表に「2000本〜2500本」の想定記載あり",
+        "fut_note": "FUT法は不採用と院長経歴ページに明記（FUE法のみ実施）"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": 0,
+        "base_price_note": "初診料無料。基本治療費の別建てはなく、グラフト単価×株数のみで算出される料金体系",
+        "graft_price": { "two_block_cut": 990, "hydro_cut": 1210, "no_cut": 1430, "long_hair": 2200, "unit": "円/グラフト（税込）" },
+        "price_500": { "two_block_cut": 495000, "hydro_cut": 605000, "no_cut": 715000, "long_hair": 1100000 },
+        "price_1000": { "two_block_cut": 990000, "hydro_cut": 1210000, "no_cut": 1430000, "long_hair": 2200000 },
+        "price_1500": { "two_block_cut": 1485000, "hydro_cut": 1815000, "no_cut": 2145000, "long_hair": 3300000 },
+        "price_2000": { "two_block_cut": 1980000, "hydro_cut": 2420000, "no_cut": 2860000, "long_hair": 4400000 },
+        "monitor_price": null,
+        "monitor_note": "症例掲載への協力という意味での『モニター』への言及はあるが、料金割引制度としてのモニター料金は確認できない",
+        "other_required_costs": { "血液検査": 11000, "静脈麻酔": 11000, "かさぶた除去": 5500, "ヘアシート代": 44000 },
+        "campaign_price": null,
+        "calculation_note": "1,000グラフトの金額（各術式）は公式料金表に明記された実額。500/1500/2000グラフトは単価×株数の機械的試算（公式が個別に明示した数字ではない）。",
+        "source_note": "料金表（2026年9月10日確認）。血液検査・静脈麻酔・かさぶた除去・ヘアシート代は術式単価とは別に必須費用として明記"
+      },
+
+      "support": {
+        "travel_support": null,
+        "accommodation_support": null,
+        "support_note": "交通費・宿泊費の補助制度の記載は確認できない（遠方患者も来院必須との説明のみ）",
+        "online_consultation": false,
+        "online_consultation_note": "FAQページに「カウンセリングは対面での実施のみ」と明記",
+        "aftercare": "定期的な問診、術後の洗髪サービス（回数・期間の詳細な公式記載は確認できない）",
+        "warranty": "確認できない（保証制度の記載なし。「半永久的に効果が持続」という効果面の記載のみ）"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "症例集ページに年代・性別・施術方法・移植株数・部位付きの症例を複数掲載。クリニック全体の累計症例数の明記は確認できないが、院長個人の経歴として「2026年2月までに凡そ1,000症例」の記載あり"
+      },
+
+      "key_features": [
+        "採取方式を4種類（刈り上げ1種＋刈り上げなし3種）から選べる料金体系",
+        "基本治療費が別建てでなく、グラフト単価×株数のみで総額が決まる分かりやすさ",
+        "血液検査・麻酔・かさぶた除去・ヘアシート代など必須費用を個別に開示している"
+      ],
+      "recommended_for": ["刈り上げない方式の中でも複数の選択肢（ハイドカット／ノーカット／ロングヘア）を比較したい人"],
+      "not_recommended_for": ["オンラインカウンセリングを希望する人（対面のみ対応）", "交通費・宿泊費補助を重視する人（記載なし）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://shokumo.tokyo/", "desc": "トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shokumo.tokyo/concept/", "desc": "自毛植毛のこだわり", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shokumo.tokyo/price/", "desc": "料金表", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shokumo.tokyo/greeting/", "desc": "院長あいさつ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shokumo.tokyo/constructed/", "desc": "症例集", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://shokumo.tokyo/faq/", "desc": "Q&A", "last_verified": "2026-09-10" },
+        { "type": "third_party", "url": "https://www.iryou.teikyouseido.mhlw.go.jp/", "desc": "厚生労働省 医療情報ネット（診療時間等に公式サイトとの差異あり）", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "sbc-shonan-clinic",
+      "clinic_name": "湘南美容クリニック",
+      "slug": "sbc-shonan-clinic",
+      "article_url": "/clinics/sbc-shonan-clinic.html",
+      "official_url": "https://www.sbc-aga.jp/",
+      "official_name_note": "自毛植毛・AGA治療は男性向け「湘南AGAクリニック」（sbc-aga.jp）と、女性向け「湘南美容クリニック美容皮膚科」内のFAGA診療（s-b-c.net/faga/）の2サイトに分かれている。運営法人の正式名称はページ内に明記されておらず確認できない。",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "全国展開", "address": "公式トップページに「全国100院以上」と記載。個別院名一覧・正確な合計院数は今回の調査では取得できず確認できない", "type": "直営（一部詳細不明）" }
+      ],
+      "clinic_count": null,
+      "clinic_count_note": "公式に「全国100院以上」との記載はあるが、自毛植毛メニューを扱う院の正確な数は確認できない",
+
+      "doctors": [
+        {
+          "name": "斎藤浩一",
+          "role": "湘南AGAクリニック ゾーン統括ドクター 兼 新宿本院院長（2023年〜）",
+          "bio": "1994年三重大学医学部卒業、同大学で初期研修。",
+          "credentials": "日本美容外科学会専門医（JSAS）、日本臨床毛髪学会正会員、日本形成外科学会正会員、国際毛髪外科学会（ISHRS）準会員、2013年ARTASロボット植毛ドクター認定取得",
+          "hair_transplant_experience": "個人の自毛植毛症例数は公式ページに記載なく確認できない",
+          "source_note": "横浜院・名古屋院・広島院等の院長名は検索結果で見られたが、個別プロフィールは未確認"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["スマートFUE植毛（刈り上げ）", "ノンシェーブン植毛（刈り上げない）", "1day植毛（オンライン診療活用）"],
+        "unique_method_name": "スマートFUE植毛／ノンシェーブン植毛",
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": true,
+        "female_note": "女性向けFAGAサイト（s-b-c.net/faga/）でスマートFUE植毛・傷跡植毛を提供。50代女性M字部分1,250グラフトの症例掲載あり",
+        "hairline_transplant": true,
+        "large_volume_supported": true,
+        "large_volume_note": "公式料金比較表に3,000グラフトまでの価格が明記されている"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": 0,
+        "base_price_note": "基本治療費0円と公式に明記（他院との差別化ポイントとして訴求）",
+        "graft_price": { "smart_fue_implied": 720, "nonshaven_implied": 950, "unit": "円/グラフト（総額表からの逆算値。公式が単価として明記した数字ではない）" },
+        "price_500": { "smart_fue": 360000, "nonshaven": 475000 },
+        "price_1000": { "smart_fue": 720000, "nonshaven": 950000 },
+        "price_1500": { "smart_fue": 1080000, "nonshaven": 1425000 },
+        "price_2000": { "smart_fue": 1440000, "nonshaven": 1900000 },
+        "price_table_full_note": "公式表には750／1,250／2,500／3,000グラフトの区分もあり（500刻みではなく250〜500刻み）",
+        "monitor_price": { "smart_fue_500": 288000, "note": "スマートFUE500グラフトの例で通常360,000円→モニター価格288,000円との情報を確認したが、モニター条件の詳細は未確認" },
+        "other_required_costs": { "血液検査": 15950 },
+        "campaign_price": null,
+        "calculation_note": "500/1000/1500/2000グラフトの金額は公式料金比較ページに明記された実額（試算ではない）。",
+        "source_note": "料金比較ページ（2026年9月10日確認）"
+      },
+
+      "support": {
+        "travel_support": null,
+        "accommodation_support": null,
+        "support_note": "交通費・宿泊費補助の記載は確認できない",
+        "online_consultation": true,
+        "aftercare": "確認できない（具体的な内容の公式記載なし）",
+        "warranty": "「自毛植毛の安心保証制度」あり。医師が『明らかに生着が少ない』と判定した場合、施術日から1〜2年の判定期間・判定日から1年以内に再手術（返金は一切なし）。医師の指示通りの内服治療継続が条件。麻酔代・オプション代・追加グラフト代は別途実費"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "自毛植毛に特化した公式の症例数の記載は確認できない"
+      },
+
+      "key_features": [
+        "基本治療費0円で、グラフト数別の総額が料金比較表に明記されている",
+        "全国規模の展開（正確な院数は公式には確認できないが、全国100院以上と自称）",
+        "女性向けFAGA専門サイトを別運営している"
+      ],
+      "recommended_for": ["全国どこでも通える大手グループを希望する人", "基本治療費0円というシンプルな料金体系を重視する人"],
+      "not_recommended_for": ["交通費・宿泊費補助の有無を重視する人（記載が確認できない）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://www.sbc-aga.jp/", "desc": "湘南AGAクリニック トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.sbc-aga.jp/price/comparison.html", "desc": "料金比較ページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.sbc-aga.jp/doctor/saito.html", "desc": "斎藤浩一医師プロフィール", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.sbc-aga.jp/care/shokumou/hoshou.html", "desc": "安心保証制度", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.s-b-c.net/faga/", "desc": "女性向けFAGA診療", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "island-tower-clinic",
+      "clinic_name": "アイランドタワークリニック",
+      "slug": "island-tower-clinic",
+      "article_url": "/clinics/island-tower-clinic.html",
+      "official_url": "https://ilandtower-clinic.jp/",
+      "official_name_note": "新宿院サイト（ilandtower-clinic.jp）とグループサイト（www.ilandtower-cl.com）が並存。累計症例数・新宿院の診療時間について両サイト間・ページ間で記載が一致しない箇所がある。",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "新宿院", "address": "東京都新宿区西新宿6-5-1 アイランドタワー5F", "type": "直営（医療法人社団樹伸会）" },
+        { "name": "大阪院", "address": "大阪府大阪市北区曽根崎2-6-6 コウヅキキャピタルウエスト7F", "type": "直営（医療法人社団萌永会）" },
+        { "name": "名古屋院", "address": "愛知県名古屋市中村区名駅4-24-8 いちご名古屋ビル7F", "type": "直営（医療法人社団萌永会）" },
+        { "name": "福岡院", "address": "福岡県福岡市中央区今泉1-22-20 アベニュー天神ビル6F", "type": "直営（医療法人社団福永会）" }
+      ],
+      "clinic_count": 4,
+
+      "doctors": [
+        {
+          "name": "對馬彰利",
+          "role": "新宿院院長（2023年就任）",
+          "bio": "2000年九州大学医学部卒業、九州大学附属病院勤務。2006年大阪府内植毛クリニック院長、2010年都内植毛クリニック院長、2013年アイランドタワークリニック勤務開始、2014年名古屋院院長、2023年新宿院院長就任。",
+          "credentials": "国際毛髪外科学会（ISHRS）associate member（2014年取得）",
+          "hair_transplant_experience": "「1日に4,000グラフト（i-Direct）または2,000グラフト（刈らない植毛）まで移植可能」と公式記載。個人の累計症例数の記載はない（クリニック全体の症例数のみ公表）",
+          "source_note": null
+        }
+      ],
+
+      "procedures": {
+        "methods": ["i-Direct法（刈り上げ）", "U-Direct法（刈らない）"],
+        "unique_method_name": "i-Direct法／U-Direct法",
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": null,
+        "female_note": "女性誌インタビュー記事（第三者情報）はあるが、公式サイト内に女性向けを明記した専用ページは確認できない",
+        "hairline_transplant": true,
+        "large_volume_supported": true,
+        "large_volume_note": "對馬医師プロフィールに『1日最大4,000グラフト（i-Direct）』との記載あり",
+        "survival_rate_claim": "生着率95%以上と公式記載（第三者記事では94%との言及もあるが公式表記は95%以上）"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": 220000,
+        "graft_price": { "shaved": 990, "unshaven": 1650, "unit": "円/グラフト（税込）" },
+        "price_500": { "shaved": 715000, "unshaven": 1045000 },
+        "price_1000": { "shaved": 1210000, "unshaven": 1870000, "note": "公式表に1,000株の直接記載はなく、基本治療費＋単価×株数の式で試算（500株・800株・1,200株・2,000株の式が完全一致することを検算済み）" },
+        "price_1500": { "shaved": 1705000, "unshaven": 2695000, "note": "試算値（公式表に1,500株の直接記載なし）" },
+        "price_2000": { "shaved": 2200000, "unshaven": 3520000, "note": "i-Directの2,000株は公式表記載の実額。U-Directの2,000株は試算値（公式表に記載なし）" },
+        "monitor_price": null,
+        "monitor_note": "モニタープラン専用ページの存在は確認できたが、割引率・条件は確認できない",
+        "other_required_costs": { "診察料": 0, "再診料": 0, "血液検査": 0, "定期検診": 0 },
+        "other_required_costs_note": "診察料・再診料・血液検査・定期検診はいずれも無料（0円）と公式に明記",
+        "campaign_price": null,
+        "calculation_note": "公式料金ページに500・800・1,200・2,000株（いずれもi-Direct）の実額表があり、基本治療費220,000円＋単価×株数の式と完全一致することを確認済み。それ以外の株数・U-Directの一部は同じ式で試算した参考値。",
+        "source_note": "料金ページ（2026年9月10日確認）"
+      },
+
+      "support": {
+        "travel_support": "あり（施術を受けた人が対象、カウンセリングのみは対象外、日本在住者限定、施術後に領収書と引き換えで支給。補助上限額は確認できない）",
+        "accommodation_support": "あり（クリニック手配のホテルに施術後宿泊可能。上限額・宿泊日数は確認できない）",
+        "online_consultation": true,
+        "aftercare": "定期検診無料。それ以外の具体的内容（通院頻度、ケア用品支給等）は確認できない",
+        "warranty": "「全額保証・AGAフォロープラン」あり。生着が全く見られない場合は全額返金または無償再手術、生着が通常以下の場合も無償で不足分の再手術。術後6・12・15ヶ月目の経過写真提出が条件、15ヶ月目の医師評価が基準。頭皮状態等により適用外となる場合あり"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "公式ドメイン・ページ間で累計症例数が「25,000件以上」「35,000件以上」「39,000件超」と3通り併存しており、最新かつ正確な数字は確認できない"
+      },
+
+      "key_features": [
+        "刈り上げるi-Direct法と刈らないU-Direct法を選べる",
+        "診察料・再診料・血液検査・定期検診がすべて無料",
+        "全額返金または無償再手術を含む保証プランがある"
+      ],
+      "recommended_for": ["診察・検査にかかる追加費用を避けたい人", "刈らない植毛（U-Direct）の総額目安を知りたい人"],
+      "not_recommended_for": ["公式サイトの累計症例数や診療時間の表記の一貫性を重視する人（サイト間で数値の食い違いがある）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://ilandtower-clinic.jp/", "desc": "新宿院トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://ilandtower-clinic.jp/cost", "desc": "料金ページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://ilandtower-clinic.jp/cost/support/", "desc": "全額保証・AGAフォロープラン", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://ilandtower-clinic.jp/cost/return/", "desc": "交通費補助について", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://ilandtower-clinic.jp/clinic/doctor", "desc": "ドクター紹介", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.ilandtower-cl.com/clinic/", "desc": "グループ院一覧（住所・運営法人）", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "ark-clinic",
+      "clinic_name": "アーククリニック",
+      "slug": "ark-clinic",
+      "article_url": "/clinics/ark-clinic.html",
+      "official_url": "https://arkclinic.jp/aga/",
+      "official_name_note": "美容外科・輪郭整形を手がける「アーククリニック」内の自毛植毛部門が「AGA by Ark CLINIC」として運営されている。",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "渋谷院", "address": "東京都渋谷区宇田川町32-12 アソルティ渋谷2階", "type": "直営" }
+      ],
+      "clinic_count": 1,
+
+      "doctors": [
+        {
+          "name": "加藤雄大",
+          "role": "院長",
+          "bio": "2010年長崎大学医学部卒業。知多市民病院での初期研修・一般外科勤務を経て、2014年ガーデンクリニック入職、2018年同クリニック統括院長、2020年アーククリニック開設。",
+          "credentials": "日本美容外科学会専門医、日本頭蓋顎顔面外科学会（会員/専門医の区分は確認できない）",
+          "hair_transplant_experience": "経歴の記載は輪郭形成・脂肪吸引等の美容外科領域が中心で、自毛植毛に特化した経歴の明記は確認できない",
+          "source_note": "自毛植毛は別医師（沖田英久医師）が担当"
+        },
+        {
+          "name": "沖田英久",
+          "role": "自毛植毛担当医師",
+          "bio": "日本大学医学部卒業。日本大学医学部形成外科勤務後、大手植毛専門クリニック（クリニック名は非公表）を経てAGA by Ark CLINICを開設。",
+          "credentials": "日本形成外科学会専門医、日本熱傷学会専門医、日本創傷外科学会専門医、日本形成外科学会皮膚腫瘍外科分野指導医",
+          "hair_transplant_experience": "個人の自毛植毛症例数の具体的な数字は確認できない",
+          "source_note": "ページ内の『13年・10,000人』はカウンセラーの経験値であり、医師本人の手術数ではない点に注意"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["Re Ark（刈り上げない、基本術式）", "刈り上げる術式（名称の明記は確認できない）"],
+        "unique_method_name": "Re Ark",
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": null,
+        "female_note": "女性患者向けの記載は確認できない",
+        "hairline_transplant": true,
+        "large_volume_supported": true,
+        "large_volume_note": "刈り上げない術式で1日最大2,000株、刈り上げる術式で1日最大3,000株まで対応と公式記載"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "base_price": 220000,
+        "graft_price": { "unshaven_re_ark": 1320, "shaved": 880, "unit": "円/株（税込）" },
+        "price_500": { "unshaven_re_ark": 880000, "shaved": 660000 },
+        "price_1000": { "unshaven_re_ark": 1540000, "shaved": 1100000 },
+        "price_1500": { "unshaven_re_ark": 2200000, "shaved": 1540000 },
+        "price_2000": { "unshaven_re_ark": 2860000, "shaved": 1980000, "note": "2,000株は公式の部位別表に直接記載がなく、基本治療費＋単価×株数の式で試算（500/1,000/1,500株は公式記載額と完全一致することを検算済み）" },
+        "monitor_price": null,
+        "monitor_note": "自毛植毛LPに『先着10名限定 最大70%OFF』の見出しとモニター事例（1,100株・1,672,000円）が掲載されているが、この金額は通常料金の計算式とも一致するため、通常価格なのか割引後価格なのかページ文言だけでは判別できない。断定を避け『要確認』として扱う",
+        "other_required_costs": { "血液検査": 11000 },
+        "other_required_costs_note": "麻酔費が基本治療費に含まれるかどうかは確認できない",
+        "campaign_price": null,
+        "calculation_note": "Re Ark（刈り上げない）の500/1,000/1,500株は公式の部位別料金表に明記された実額。2,000株および刈り上げる術式の全株数は基本治療費220,000円＋単価×株数で試算した参考値。",
+        "source_note": "料金ページ（2026年9月10日確認）"
+      },
+
+      "support": {
+        "travel_support": "1都3県（東京・千葉・埼玉・神奈川）在住者は公共交通機関の交通費を負担と明記",
+        "accommodation_support": "1都3県以外かつ国内在住者には提携宿泊施設を1泊分提供と明記",
+        "online_consultation": true,
+        "aftercare": "術後のニキビ・不安時の診察無料、処方薬無料、定期検診無料",
+        "warranty": "明らかな生着不良と医師が判断した株について再手術を保証。返金保証の有無は確認できない"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "自毛植毛ページに術前後写真付き症例を9件程度確認。総症例数の記載は確認できない"
+      },
+
+      "key_features": [
+        "刈り上げない術式（Re Ark）を基本に据え、刈り上げる術式も選べる",
+        "1都3県在住者への交通費負担、それ以外の国内在住者への宿泊施設提供を明記",
+        "初診・再診・カウンセリング・アフターフォローが無料"
+      ],
+      "recommended_for": ["刈り上げない植毛を基本術式として検討している人", "1都3県在住で交通費負担を受けたい人"],
+      "not_recommended_for": ["女性向け対応の有無を重視する人（公式記載が確認できない）", "渋谷院以外の通いやすさを重視する人（1院のみ）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://arkclinic.jp/", "desc": "トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://arkclinic.jp/aga/", "desc": "自毛植毛トップ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://arkclinic.jp/aga/price-reark/", "desc": "料金ページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://arkclinic.jp/aga/reark/", "desc": "Re Ark術式説明", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://arkclinic.jp/doctor/", "desc": "ドクター紹介", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://arkclinic.jp/access/", "desc": "アクセス", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    },
+    {
+      "clinic_id": "torimodosu-center",
+      "clinic_name": "トリモドスセンター",
+      "slug": "torimodosu-center",
+      "article_url": "/clinics/torimodosu-center.html",
+      "official_url": "https://www.torimodosu-center.com/",
+      "is_referral_agency": true,
+      "referral_agency_note": "トリモドスセンターは日本国内で施術を行う『クリニック』ではなく、トルコ・イスタンブールの提携クリニック『ISTANBUL HAIR CENTER』への紹介・カウンセリング仲介・渡航手配・アフターサポートを行う『植毛案内所（エージェント）』。運営会社は株式会社トリモドス。実際の執刀は現地（トルコ）の医師が行う。",
+
+      "affiliate_status": false,
+      "affiliate_url": null,
+      "affiliate_asp": null,
+      "affiliate_cta_text": null,
+      "affiliate_notes": "2026年9月時点で未提携。",
+
+      "locations": [
+        { "name": "日本国内拠点", "address": "確認できない（オンライン・LINE対応が中心、来院型拠点の有無は確認できない）", "type": "紹介窓口" },
+        { "name": "提携クリニック（ISTANBUL HAIR CENTER）", "address": "トルコ・イスタンブール（詳細住所は確認できない）", "type": "施術実施先" }
+      ],
+      "clinic_count": null,
+      "clinic_count_note": "『クリニック』としての院数という概念が該当しない（紹介サービス業態のため）",
+
+      "doctors": [
+        {
+          "name": "Dr. Fatih",
+          "role": "提携クリニック（ISTANBUL HAIR CENTER）医師",
+          "bio": "1987年生まれ。ハタイ・ムスタファ・ケマル大学医学部卒業。",
+          "credentials": "トルコ医学博士、形成外科専門医",
+          "hair_transplant_experience": "『毛髪移植分野で3,500件以上の実績』と公式記載（自己申告値）",
+          "source_note": "日本国内で施術を行う医師ではない"
+        },
+        {
+          "name": "Dr. Ismet",
+          "role": "提携クリニック（ISTANBUL HAIR CENTER）医師",
+          "bio": "1985年生まれ。2011年より美容医療に従事。",
+          "credentials": "医学博士、医療管理学修士、オゾン療法専門医",
+          "hair_transplant_experience": "主にDHI術式を中心に施術と記載",
+          "source_note": "日本国内で施術を行う医師ではない"
+        }
+      ],
+
+      "procedures": {
+        "methods": ["サファイアFUE", "DHI", "ステップカット", "ノンシェーブン", "スキンフェード", "通常の刈り上げ方式"],
+        "unique_method_name": null,
+        "shaved_fue": true,
+        "unshaven_fue": true,
+        "female_supported": null,
+        "hairline_transplant": true,
+        "large_volume_supported": true,
+        "large_volume_note": "症例に4,500株・4,100株・4,000株などの大量植毛例あり"
+      },
+
+      "pricing": {
+        "currency": "JPY",
+        "tax_included": true,
+        "pricing_model": "グラフト単価制ではなく、フレキシブル／スタンダード／プレミアムの3段階パッケージ制。他院の『基本治療費＋グラフト単価』の料金体系とは前提が異なるため単純比較に注意。",
+        "base_price": null,
+        "graft_price": null,
+        "package_prices": { "flexible": 594000, "standard": 660000, "premium": 726000, "cash_discount": -40000 },
+        "price_500": null,
+        "price_1000": null,
+        "price_1500": null,
+        "price_2000": null,
+        "price_note": "パッケージ制のため株数別総額は算出できない（株数上限・従量課金の公式記載なし）",
+        "monitor_price": null,
+        "other_required_costs": { "ヘアシート": 40000, "DHIオプション": 30000, "ホテル延泊1泊": 15000, "ホテルグレードアップ1泊": 10000, "静脈内鎮静麻酔": 50000, "顔への追加PRP": 50000, "観光通訳同行": 40000 },
+        "campaign_price": null,
+        "calculation_note": "パッケージ料金に施術・部分麻酔・医療通訳・送迎・PRP療法・最大3泊のホテル宿泊・空港送迎等が含まれる。国際航空券代はパッケージ料金に含まれない（自己負担）。",
+        "source_note": "料金プランページ（2026年9月10日確認）。第三者サイトに『最大5,000株まで植え放題』『日本の1/8の価格』との記載があるが、公式ページでは裏付けが取れないため不採用。"
+      },
+
+      "support": {
+        "travel_support": "国内交通費・国際航空券代の補助についての記載は確認できない（航空券代は自己負担、保証の返金対象外とも明記）",
+        "accommodation_support": "パッケージ料金に最大3泊のホテル宿泊が含まれる（延泊・グレードアップは有料オプション）",
+        "online_consultation": true,
+        "aftercare": "術後ケアページの存在は確認できたが、具体的な内容の詳細は確認できない",
+        "warranty": "『あんしん保証制度』：施術後1年経過時点で移植毛の生着が『全く確認できない』場合、パッケージ料金を全額返金または無償で現地再手術（宿泊・通訳・送迎込み、渡航費は対象外）。条件：①施術から1年経過、②術後1年間に5回の経過画像提出、③術後1年〜1年6ヶ月以内に利用申告、④医師が『明らかな定着なし』と判定。主観的な満足度を保証するものではない旨を明記。第三者情報にある『生着率90%保証』という具体的な数値は公式ページでは確認できない"
+      },
+
+      "cases": {
+        "official_case_count": null,
+        "official_case_photos": true,
+        "note": "4,500株・4,100株・4,000株・3,250株・2,500株など大量株数の症例を複数掲載。累計症例数の明記は確認できない"
+      },
+
+      "key_features": [
+        "国内クリニックではなく、トルコの提携クリニックへの紹介・渡航サポートを行うエージェント",
+        "グラフト単価制ではなく3段階のパッケージ料金制（施術・通訳・送迎・宿泊込み）",
+        "全額返金または無償の現地再手術を含む『あんしん保証制度』を公式に明記"
+      ],
+      "recommended_for": ["国内クリニックよりも大量株数を検討し、渡航サポート込みのパッケージを希望する人"],
+      "not_recommended_for": ["日本国内のクリニックで医師の診察から施術まで完結させたい人（施術は海外で行われる）", "グラフト単価での他院比較を重視する人（パッケージ制のため単純比較が難しい）"],
+
+      "information_sources": [
+        { "type": "official", "url": "https://www.torimodosu-center.com/", "desc": "トップページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.torimodosu-center.com/price", "desc": "料金プラン", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.torimodosu-center.com/compensation", "desc": "あんしん保証制度", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.torimodosu-center.com/clinic", "desc": "治療について・提携クリニック紹介", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.torimodosu-center.com/counseling", "desc": "カウンセリング", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://torimodosu.co.jp/", "desc": "運営会社トップ", "last_verified": "2026-09-10" },
+        { "type": "third_party", "url": "https://note.com/", "desc": "生着率・料金に関する第三者記事（本文では不採用、参考のみ）", "last_verified": "2026-09-10" }
+      ],
+      "last_verified": "2026-09-10"
+    }
+  ]
+}
