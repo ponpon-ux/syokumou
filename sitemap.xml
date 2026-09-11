@@ -51,6 +51,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://shokumou-tebiki.com/comparison/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://shokumou-tebiki.com/clinics/tokyo-shokumou-clinic.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

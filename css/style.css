@@ -1338,7 +1338,8 @@ li { margin-bottom: 0.4em; }
 
 /* ==========================================================================
    クリニックCTA共通コンポーネント（js/clinic-cta.js が /data/clinics.json を
-   もとに描画する）。提携済み（広告）／未提携（通常リンク）を視覚的にも区別する。
+   もとに描画する）。広告CTAには「広告」表記を付けるが、提携の有無そのものは
+   ユーザー向けに表示しない（DB内部でのみ管理）。
    ========================================================================== */
 .clinic-cta {
   margin: 1.6em 0;
@@ -1375,4 +1376,153 @@ li { margin-bottom: 0.4em; }
   background: var(--color-badge-clinic-bg);
   color: var(--color-badge-clinic-text);
   font-weight: 700;
+}
+
+/* ==========================================================================
+   クリニック比較ページ（/comparison/、js/comparison.js が描画）
+   ========================================================================== */
+.filter-loading {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+.filter-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.filter-group__label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+}
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter-chip {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  cursor: pointer;
+}
+.filter-chip:hover {
+  border-color: var(--color-accent);
+}
+.filter-chip.is-active {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: #fff;
+}
+.filter-select {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  max-width: 260px;
+}
+.filter-result-count {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+.filter-empty {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.graft-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.graft-toggle__btn {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-accent-dark);
+  background: transparent;
+  color: var(--color-accent-dark);
+  cursor: pointer;
+}
+.graft-toggle__btn.is-active {
+  background: var(--color-accent-dark);
+  color: #fff;
+}
+
+.compare-clinic-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border);
+}
+.compare-pick {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.topic-group {
+  margin-bottom: 18px;
+}
+.topic-group__title {
+  font-weight: 700;
+  color: var(--color-accent-dark);
+  margin-bottom: 8px;
+}
+.topic-group__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.topic-group__list li a {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-badge-compare-bg);
+  color: var(--color-badge-compare-text);
+  text-decoration: none;
+}
+.topic-group__list li a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .filter-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+  }
+  .filter-group {
+    flex: 1 1 200px;
+  }
 }

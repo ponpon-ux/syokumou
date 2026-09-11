@@ -6,8 +6,11 @@
    <div class="clinic-cta-slot" data-clinic-cta="clinic_id"></div>
    <script src="/js/clinic-cta.js"></script>
 
-   affiliate_status が true かつ affiliate_url がある場合のみ広告CTAを表示する。
-   それ以外は「提携なし」の通常リンク（公式サイトへの非広告リンク）を表示する。
+   affiliate_status が true かつ affiliate_url がある場合のみ広告CTA（「広告」表記付き）を表示する。
+   それ以外は公式サイトへの通常リンクを表示する。
+
+   提携の有無はDB（/data/clinics.json）内部でのみ管理し、CTAの出し分け以外の目的で
+   画面上に「提携済み」「未提携」等のクリニックごとの提携状況を表示しないこと。
    ========================================================================== */
 
 (function () {
@@ -23,7 +26,7 @@
 
     var note = document.createElement("p");
     note.className = "clinic-cta__note";
-    note.textContent = "広告" + (clinic.affiliate_asp ? "（" + clinic.affiliate_asp + "経由）" : "");
+    note.textContent = "広告";
 
     container.classList.add("clinic-cta", "clinic-cta--affiliate");
     container.innerHTML = "";
@@ -43,14 +46,9 @@
     a.rel = "noopener";
     a.textContent = (clinic.clinic_name || "") + " 公式サイトを見る";
 
-    var note = document.createElement("p");
-    note.className = "clinic-cta__note";
-    note.textContent = "現時点で提携していないため、通常リンクです（広告ではありません）。";
-
     container.classList.add("clinic-cta", "clinic-cta--plain");
     container.innerHTML = "";
     container.appendChild(a);
-    container.appendChild(note);
   }
 
   function renderCTA(container, clinic) {

@@ -33,6 +33,7 @@
         { "name": "東京院", "address": "東京都港区芝大門（詳細番地は公式サイト所在地ページで要確認）", "note": "公式サイトで確認できた運営会社所在エリア情報に基づく。詳細住所は未確認" }
       ],
       "clinic_count": null,
+      "regions": ["東京"],
 
       "doctors": [
         {
@@ -125,6 +126,7 @@
         { "name": "提携院（エミナルクリニックメンズ福岡天神院）", "address": "福岡県福岡市中央区大名1丁目14-45 QizTENJIN 3階", "type": "提携" }
       ],
       "clinic_count": 5,
+      "regions": ["東京", "愛知", "大阪", "福岡"],
 
       "doctors": [
         {
@@ -222,6 +224,7 @@
         { "name": "新宿院", "address": "東京都新宿区（詳細番地は公式トップページ本文では確認できない）", "type": "直営" }
       ],
       "clinic_count": 1,
+      "regions": ["東京"],
 
       "doctors": [
         {
@@ -325,6 +328,7 @@
         { "name": "福岡院", "address": "福岡県福岡市博多区博多駅前3-30-1 タイセイビル7F", "type": "直営" }
       ],
       "clinic_count": 6,
+      "regions": ["東京", "大阪", "愛知", "福岡"],
 
       "doctors": [
         {
@@ -418,6 +422,7 @@
         { "name": "秋葉原院", "address": "東京都千代田区神田松永町104 TSKビル4階", "type": "直営" }
       ],
       "clinic_count": 1,
+      "regions": ["東京"],
 
       "doctors": [
         {
@@ -508,6 +513,7 @@
         { "name": "銀座院", "address": "東京都中央区銀座2-4-18 ALBORE GINZA 3階", "type": "直営" }
       ],
       "clinic_count": 1,
+      "regions": ["東京"],
 
       "doctors": [
         {
@@ -604,6 +610,7 @@
         { "name": "新富町院", "address": "東京都中央区新富1丁目5-12 エスパシオ3F", "type": "直営" }
       ],
       "clinic_count": 1,
+      "regions": ["東京"],
 
       "doctors": [
         {
@@ -702,6 +709,7 @@
       ],
       "clinic_count": null,
       "clinic_count_note": "公式に「全国100院以上」との記載はあるが、自毛植毛メニューを扱う院の正確な数は確認できない",
+      "regions": ["全国"],
 
       "doctors": [
         {
@@ -797,6 +805,7 @@
         { "name": "福岡院", "address": "福岡県福岡市中央区今泉1-22-20 アベニュー天神ビル6F", "type": "直営（医療法人社団福永会）" }
       ],
       "clinic_count": 4,
+      "regions": ["東京", "大阪", "愛知", "福岡"],
 
       "doctors": [
         {
@@ -890,6 +899,7 @@
         { "name": "渋谷院", "address": "東京都渋谷区宇田川町32-12 アソルティ渋谷2階", "type": "直営" }
       ],
       "clinic_count": 1,
+      "regions": ["東京"],
 
       "doctors": [
         {
@@ -993,6 +1003,7 @@
       ],
       "clinic_count": null,
       "clinic_count_note": "『クリニック』としての院数という概念が該当しない（紹介サービス業態のため）",
+      "regions": ["オンライン窓口", "海外（トルコ）"],
 
       "doctors": [
         {
