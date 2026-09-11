@@ -158,6 +158,17 @@
       title.appendChild(titleLink);
       body.appendChild(title);
 
+      var pickLabel = document.createElement("label");
+      pickLabel.className = "compare-pick";
+      var pickCb = document.createElement("input");
+      pickCb.type = "checkbox";
+      pickCb.setAttribute("data-compare-id", clinic.clinic_id);
+      pickCb.checked = state.picked.indexOf(clinic.clinic_id) !== -1;
+      pickCb.addEventListener("change", function () { onTogglePick(clinic.clinic_id, pickCb); });
+      pickLabel.appendChild(pickCb);
+      pickLabel.appendChild(document.createTextNode(" 比較に追加"));
+      body.appendChild(pickLabel);
+
       var facts = el("ul", "clinic-facts");
       facts.appendChild(el("li", null, (clinic.regions || []).join(" / ") || "地域確認中"));
       facts.appendChild(el("li", null, state.grafts.toLocaleString("ja-JP") + "株：" + priceText(clinic, state.grafts)));
@@ -174,17 +185,6 @@
       }
 
       var actions = el("div", "compare-clinic-card__actions");
-
-      var label = document.createElement("label");
-      label.className = "compare-pick";
-      var cb = document.createElement("input");
-      cb.type = "checkbox";
-      cb.setAttribute("data-compare-id", clinic.clinic_id);
-      cb.checked = state.picked.indexOf(clinic.clinic_id) !== -1;
-      cb.addEventListener("change", function () { onTogglePick(clinic.clinic_id, cb); });
-      label.appendChild(cb);
-      label.appendChild(document.createTextNode(" 比較に追加"));
-      actions.appendChild(label);
 
       var link = document.createElement("a");
       link.className = "card__cta";
@@ -214,7 +214,7 @@
 
     var thead = document.createElement("thead");
     var headRow = document.createElement("tr");
-    ["クリニック", "地域", "主な術式", state.grafts.toLocaleString("ja-JP") + "株の目安", "刈り上げない植毛", "女性対応", "交通費・宿泊費補助", "主な医師", "比較"].forEach(function (h) {
+    ["クリニック", "地域", "主な術式", state.grafts.toLocaleString("ja-JP") + "株の目安", "刈り上げない植毛", "女性対応", "交通費・宿泊費補助", "主な医師"].forEach(function (h) {
       var th = document.createElement("th");
       th.setAttribute("scope", "col");
       th.textContent = h;
@@ -229,10 +229,23 @@
 
       var thName = document.createElement("th");
       thName.setAttribute("scope", "row");
+      thName.className = "compare-table__name-cell";
       var a = document.createElement("a");
       a.href = clinic.article_url;
       a.textContent = clinic.clinic_name;
       thName.appendChild(a);
+
+      var pickLabel = document.createElement("label");
+      pickLabel.className = "compare-pick compare-pick--table";
+      var pickCb = document.createElement("input");
+      pickCb.type = "checkbox";
+      pickCb.setAttribute("data-compare-id", clinic.clinic_id);
+      pickCb.checked = state.picked.indexOf(clinic.clinic_id) !== -1;
+      pickCb.addEventListener("change", function () { onTogglePick(clinic.clinic_id, pickCb); });
+      pickLabel.appendChild(pickCb);
+      pickLabel.appendChild(document.createTextNode(" 比較に追加"));
+      thName.appendChild(pickLabel);
+
       tr.appendChild(thName);
 
       var doctor = (clinic.doctors && clinic.doctors[0]) ? clinic.doctors[0].name + (clinic.doctors[0].role ? "（" + clinic.doctors[0].role + "）" : "") : "確認できない";
@@ -252,16 +265,6 @@
         td.textContent = text;
         tr.appendChild(td);
       });
-
-      var tdPick = document.createElement("td");
-      var cb = document.createElement("input");
-      cb.type = "checkbox";
-      cb.setAttribute("data-compare-id", clinic.clinic_id);
-      cb.setAttribute("aria-label", clinic.clinic_name + "を比較に追加");
-      cb.checked = state.picked.indexOf(clinic.clinic_id) !== -1;
-      cb.addEventListener("change", function () { onTogglePick(clinic.clinic_id, cb); });
-      tdPick.appendChild(cb);
-      tr.appendChild(tdPick);
 
       tbody.appendChild(tr);
     });

@@ -1472,7 +1472,7 @@ li { margin-bottom: 0.4em; }
 .compare-clinic-card__actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 10px;
   margin-top: 12px;
   padding-top: 12px;
@@ -1482,9 +1482,28 @@ li { margin-bottom: 0.4em; }
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
   cursor: pointer;
+  padding: 4px 0 10px;
+}
+.compare-pick input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.compare-pick--table {
+  font-size: 0.78rem;
+  font-weight: 400;
+  padding: 2px 0 0;
+}
+.compare-table th.compare-table__name-cell {
+  white-space: normal;
+  min-width: 150px;
+}
+.compare-table th.compare-table__name-cell a {
+  display: block;
+  margin-bottom: 4px;
 }
 
 .topic-group {
