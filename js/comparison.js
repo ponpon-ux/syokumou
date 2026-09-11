@@ -359,7 +359,18 @@
     showPickMessage._t = window.setTimeout(function () { out.hidden = true; }, 4000);
   }
 
+  function renderTray() {
+    var tray = document.getElementById("compare-tray");
+    var countEl = document.getElementById("compare-tray-count");
+    if (!tray || !countEl) return;
+    countEl.textContent = state.picked.length;
+    tray.hidden = state.picked.length === 0;
+    document.body.classList.toggle("has-compare-tray", state.picked.length > 0);
+  }
+
   function renderPicked() {
+    renderTray();
+
     var emptyEl = document.getElementById("picked-compare-empty");
     var resultEl = document.getElementById("picked-compare-result");
     if (!emptyEl || !resultEl) return;
@@ -522,6 +533,15 @@
     });
   }
 
+  function initCompareTray() {
+    var btn = document.getElementById("compare-tray-btn");
+    var target = document.getElementById("pick-compare");
+    if (!btn || !target) return;
+    btn.addEventListener("click", function () {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+
   function init() {
     var loadingEl = document.getElementById("comparison-loading");
     fetch("/data/clinics.json")
@@ -534,6 +554,7 @@
         initBudgetSelect();
         initGraftToggle();
         initReset();
+        initCompareTray();
         renderAll();
       })
       .catch(function () {
