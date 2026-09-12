@@ -25,14 +25,13 @@
   };
 
   var GRAFT_OPTIONS = [500, 1000, 1500, 2000];
-  var MAX_PICK = 3;
 
   var state = {
     region: "all",
     flags: {},           // { unshaven_fue: true, female_supported: true, travel: true }
     budget: "all",
     grafts: 1000,
-    picked: []            // clinic_id[]
+    excluded: {}          // { clinic_id: true } … 比較表から手動で外した院
   };
 
   var ALL_CLINICS = [];
@@ -158,17 +157,6 @@
       title.appendChild(titleLink);
       body.appendChild(title);
 
-      var pickLabel = document.createElement("label");
-      pickLabel.className = "compare-pick";
-      var pickCb = document.createElement("input");
-      pickCb.type = "checkbox";
-      pickCb.setAttribute("data-compare-id", clinic.clinic_id);
-      pickCb.checked = state.picked.indexOf(clinic.clinic_id) !== -1;
-      pickCb.addEventListener("change", function () { onTogglePick(clinic.clinic_id, pickCb); });
-      pickLabel.appendChild(pickCb);
-      pickLabel.appendChild(document.createTextNode(" 比較に追加"));
-      body.appendChild(pickLabel);
-
       var facts = el("ul", "clinic-facts");
       facts.appendChild(el("li", null, (clinic.regions || []).join(" / ") || "地域確認中"));
       facts.appendChild(el("li", null, state.grafts.toLocaleString("ja-JP") + "株：" + priceText(clinic, state.grafts)));
@@ -198,15 +186,96 @@
     });
   }
 
-  /* ---------------- 描画：横断比較表 ---------------- */
+  /* ---------------- 横断比較表：院の除外／復元 ---------------- */
 
-  function renderTable(list) {
+  function toggleExclude(clinicId) {
+    state.excluded[clinicId] = true;
+    renderAll();
+  }
+
+  function restoreClinic(clinicId) {
+    delete state.excluded[clinicId];
+    renderAll();
+  }
+
+  function restoreAllClinics() {
+    state.excluded = {};
+    renderAll();
+  }
+
+  /* ---------------- 描画：比較表の表示状況バー ---------------- */
+
+  function renderCompareStatus(filteredList, visibleList) {
+    var wrap = document.getElementById("compare-status-bar");
+    if (!wrap) return;
+    wrap.innerHTML = "";
+
+    var excludedInView = filteredList.filter(function (c) { return !!state.excluded[c.clinic_id]; });
+
+    var countP = el(
+      "p",
+      "compare-status-bar__count",
+      "表示中 <strong>" + visibleList.length + "院</strong> / 全" + ALL_CLINICS.length + "院"
+    );
+    wrap.appendChild(countP);
+
+    if (excludedInView.length) {
+      var restoreBtn = document.createElement("button");
+      restoreBtn.type = "button";
+      restoreBtn.className = "compare-restore-all";
+      restoreBtn.textContent = "すべて表示";
+      restoreBtn.addEventListener("click", restoreAllClinics);
+      wrap.appendChild(restoreBtn);
+
+      var chips = el("div", "compare-excluded-chips");
+      excludedInView.forEach(function (c) {
+        var chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "compare-excluded-chip";
+        chip.innerHTML = '<span class="compare-excluded-chip__plus">+</span> ' + c.clinic_name;
+        chip.addEventListener("click", function () { restoreClinic(c.clinic_id); });
+        chips.appendChild(chip);
+      });
+      wrap.appendChild(chips);
+    }
+  }
+
+  /* ---------------- 描画：横断比較表（クリニック＝列、全院表示 → 不要な院を外す） ---------------- */
+
+  function renderTable(filteredList) {
     var wrap = document.getElementById("compare-table-output");
     if (!wrap) return;
     wrap.innerHTML = "";
 
+    var list = filteredList.filter(function (c) { return !state.excluded[c.clinic_id]; });
+
+    renderCompareStatus(filteredList, list);
+
+    if (!list.length) {
+      wrap.appendChild(el(
+        "p",
+        "compare-table-empty",
+        filteredList.length
+          ? "すべての院が非表示になっています。上の「すべて表示」から戻せます。"
+          : "条件に合うクリニックが見つかりませんでした。条件を減らしてお試しください。"
+      ));
+      return;
+    }
+
+    var rows = [
+      { label: "地域", get: function (c) { return (c.regions || []).join(" / ") || "確認できない"; } },
+      { label: "主な術式", get: function (c) { return (c.procedures && (c.procedures.unique_method_name || (c.procedures.methods || []).join(" / "))) || "確認できない"; } },
+      { label: state.grafts.toLocaleString("ja-JP") + "株の目安", get: function (c) { return priceText(c, state.grafts); } },
+      { label: "刈り上げない植毛", get: function (c) { return formatBool(c.procedures && c.procedures.unshaven_fue); } },
+      { label: "女性対応", get: function (c) { return formatBool(c.procedures && c.procedures.female_supported); } },
+      { label: "交通費・宿泊費補助", get: function (c) { return travelSupportText(c) || (c.support && c.support.accommodation_support) || "確認できない"; } },
+      { label: "主な医師", get: function (c) {
+          return (c.doctors && c.doctors[0]) ? c.doctors[0].name + (c.doctors[0].role ? "（" + c.doctors[0].role + "）" : "") : "確認できない";
+        } }
+    ];
+
     var table = document.createElement("table");
-    table.className = "compare-table";
+    table.className = "compare-table compare-table--clinics";
 
     var caption = document.createElement("caption");
     caption.textContent = "自毛植毛クリニック比較表（" + state.grafts.toLocaleString("ja-JP") + "株の目安）";
@@ -214,61 +283,62 @@
 
     var thead = document.createElement("thead");
     var headRow = document.createElement("tr");
-    ["クリニック", "地域", "主な術式", state.grafts.toLocaleString("ja-JP") + "株の目安", "刈り上げない植毛", "女性対応", "交通費・宿泊費補助", "主な医師"].forEach(function (h) {
+
+    var corner = document.createElement("th");
+    corner.className = "compare-table__corner";
+    corner.setAttribute("scope", "col");
+    corner.textContent = "比較項目";
+    headRow.appendChild(corner);
+
+    list.forEach(function (clinic) {
       var th = document.createElement("th");
       th.setAttribute("scope", "col");
-      th.textContent = h;
+      th.className = "compare-table__clinic-head";
+
+      var headInner = el("div", "compare-clinic-head");
+
+      var removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.className = "compare-clinic-head__remove";
+      removeBtn.setAttribute("aria-label", clinic.clinic_name + "を比較から外す");
+      removeBtn.textContent = "×";
+      removeBtn.addEventListener("click", function () { toggleExclude(clinic.clinic_id); });
+      headInner.appendChild(removeBtn);
+
+      var nameLink = document.createElement("a");
+      nameLink.className = "compare-clinic-head__name";
+      nameLink.href = clinic.article_url;
+      nameLink.textContent = clinic.clinic_name;
+      headInner.appendChild(nameLink);
+
+      var articleLink = document.createElement("a");
+      articleLink.className = "compare-clinic-head__link";
+      articleLink.href = clinic.article_url;
+      articleLink.textContent = "個別記事を見る";
+      headInner.appendChild(articleLink);
+
+      th.appendChild(headInner);
       headRow.appendChild(th);
     });
     thead.appendChild(headRow);
     table.appendChild(thead);
 
     var tbody = document.createElement("tbody");
-    list.forEach(function (clinic) {
+    rows.forEach(function (row) {
       var tr = document.createElement("tr");
-
-      var thName = document.createElement("th");
-      thName.setAttribute("scope", "row");
-      thName.className = "compare-table__name-cell";
-      var a = document.createElement("a");
-      a.href = clinic.article_url;
-      a.textContent = clinic.clinic_name;
-      thName.appendChild(a);
-
-      var pickLabel = document.createElement("label");
-      pickLabel.className = "compare-pick compare-pick--table";
-      var pickCb = document.createElement("input");
-      pickCb.type = "checkbox";
-      pickCb.setAttribute("data-compare-id", clinic.clinic_id);
-      pickCb.checked = state.picked.indexOf(clinic.clinic_id) !== -1;
-      pickCb.addEventListener("change", function () { onTogglePick(clinic.clinic_id, pickCb); });
-      pickLabel.appendChild(pickCb);
-      pickLabel.appendChild(document.createTextNode(" 比較に追加"));
-      thName.appendChild(pickLabel);
-
-      tr.appendChild(thName);
-
-      var doctor = (clinic.doctors && clinic.doctors[0]) ? clinic.doctors[0].name + (clinic.doctors[0].role ? "（" + clinic.doctors[0].role + "）" : "") : "確認できない";
-      var travel = travelSupportText(clinic) || (clinic.support && clinic.support.accommodation_support) || "確認できない";
-      var methodName = (clinic.procedures && (clinic.procedures.unique_method_name || (clinic.procedures.methods || []).join(" / "))) || "確認できない";
-
-      [
-        (clinic.regions || []).join(" / ") || "確認できない",
-        methodName,
-        priceText(clinic, state.grafts),
-        formatBool(clinic.procedures && clinic.procedures.unshaven_fue),
-        formatBool(clinic.procedures && clinic.procedures.female_supported),
-        travel,
-        doctor
-      ].forEach(function (text) {
+      var th = document.createElement("th");
+      th.setAttribute("scope", "row");
+      th.textContent = row.label;
+      tr.appendChild(th);
+      list.forEach(function (clinic) {
         var td = document.createElement("td");
-        td.textContent = text;
+        td.textContent = row.get(clinic);
         tr.appendChild(td);
       });
-
       tbody.appendChild(tr);
     });
     table.appendChild(tbody);
+
     wrap.appendChild(table);
   }
 
@@ -323,123 +393,6 @@
     });
   }
 
-  /* ---------------- 選択比較（2〜3院） ---------------- */
-
-  function onTogglePick(clinicId, checkboxEl) {
-    var idx = state.picked.indexOf(clinicId);
-    if (checkboxEl.checked) {
-      if (idx === -1) {
-        if (state.picked.length >= MAX_PICK) {
-          checkboxEl.checked = false;
-          showPickMessage("比較は最大" + MAX_PICK + "院まで選べます。他の院のチェックを外してからお試しください。");
-          return;
-        }
-        state.picked.push(clinicId);
-      }
-    } else {
-      if (idx !== -1) state.picked.splice(idx, 1);
-    }
-    syncCheckboxes();
-    renderPicked();
-  }
-
-  function syncCheckboxes() {
-    var boxes = document.querySelectorAll("[data-compare-id]");
-    boxes.forEach(function (box) {
-      box.checked = state.picked.indexOf(box.getAttribute("data-compare-id")) !== -1;
-    });
-  }
-
-  function showPickMessage(msg) {
-    var out = document.getElementById("pick-message");
-    if (!out) return;
-    out.textContent = msg;
-    out.hidden = false;
-    window.clearTimeout(showPickMessage._t);
-    showPickMessage._t = window.setTimeout(function () { out.hidden = true; }, 4000);
-  }
-
-  function renderTray() {
-    var tray = document.getElementById("compare-tray");
-    var countEl = document.getElementById("compare-tray-count");
-    if (!tray || !countEl) return;
-    countEl.textContent = state.picked.length;
-    tray.hidden = state.picked.length === 0;
-    document.body.classList.toggle("has-compare-tray", state.picked.length > 0);
-  }
-
-  function renderPicked() {
-    renderTray();
-
-    var emptyEl = document.getElementById("picked-compare-empty");
-    var resultEl = document.getElementById("picked-compare-result");
-    if (!emptyEl || !resultEl) return;
-
-    if (!state.picked.length) {
-      emptyEl.hidden = false;
-      resultEl.hidden = true;
-      resultEl.innerHTML = "";
-      return;
-    }
-    emptyEl.hidden = true;
-    resultEl.hidden = false;
-    resultEl.innerHTML = "";
-
-    var clinics = state.picked
-      .map(function (id) { return ALL_CLINICS.filter(function (c) { return c.clinic_id === id; })[0]; })
-      .filter(Boolean);
-
-    var rows = [
-      { label: "地域", get: function (c) { return (c.regions || []).join(" / ") || "確認できない"; } },
-      { label: "主な術式", get: function (c) { return (c.procedures && (c.procedures.unique_method_name || (c.procedures.methods || []).join(" / "))) || "確認できない"; } },
-      { label: state.grafts.toLocaleString("ja-JP") + "株の目安", get: function (c) { return priceText(c, state.grafts); } },
-      { label: "刈り上げない植毛", get: function (c) { return formatBool(c.procedures && c.procedures.unshaven_fue); } },
-      { label: "女性対応", get: function (c) { return formatBool(c.procedures && c.procedures.female_supported); } },
-      { label: "交通費補助", get: function (c) { return (c.support && c.support.travel_support) || "確認できない"; } },
-      { label: "宿泊費補助", get: function (c) { return (c.support && c.support.accommodation_support) || "確認できない"; } },
-      { label: "アフターケア", get: function (c) { return (c.support && c.support.aftercare) || "確認できない"; } },
-      { label: "主な医師", get: function (c) { return (c.doctors && c.doctors[0] && c.doctors[0].name) || "確認できない"; } },
-      { label: "特徴", get: function (c) { return (c.key_features && c.key_features[0]) || "確認できない"; } }
-    ];
-
-    var table = document.createElement("table");
-    table.className = "compare-table";
-    var caption = document.createElement("caption");
-    caption.textContent = "選択した" + clinics.length + "院の比較";
-    table.appendChild(caption);
-
-    var thead = document.createElement("thead");
-    var headRow = document.createElement("tr");
-    headRow.appendChild(el("th", null, "比較項目"));
-    clinics.forEach(function (c) {
-      var th = document.createElement("th");
-      var a = document.createElement("a");
-      a.href = c.article_url;
-      a.textContent = c.clinic_name;
-      th.appendChild(a);
-      headRow.appendChild(th);
-    });
-    thead.appendChild(headRow);
-    table.appendChild(thead);
-
-    var tbody = document.createElement("tbody");
-    rows.forEach(function (row) {
-      var tr = document.createElement("tr");
-      var th = document.createElement("th");
-      th.setAttribute("scope", "row");
-      th.textContent = row.label;
-      tr.appendChild(th);
-      clinics.forEach(function (c) {
-        var td = document.createElement("td");
-        td.textContent = row.get(c);
-        tr.appendChild(td);
-      });
-      tbody.appendChild(tr);
-    });
-    table.appendChild(tbody);
-    resultEl.appendChild(table);
-  }
-
   /* ---------------- 再描画まとめ ---------------- */
 
   function renderAll() {
@@ -448,7 +401,6 @@
     renderCards(list);
     renderTable(list);
     renderTopicGroups();
-    renderPicked();
   }
 
   /* ---------------- フィルタUIの初期化 ---------------- */
@@ -533,15 +485,6 @@
     });
   }
 
-  function initCompareTray() {
-    var btn = document.getElementById("compare-tray-btn");
-    var target = document.getElementById("pick-compare");
-    if (!btn || !target) return;
-    btn.addEventListener("click", function () {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
-
   function init() {
     var loadingEl = document.getElementById("comparison-loading");
     fetch("/data/clinics.json")
@@ -554,7 +497,6 @@
         initBudgetSelect();
         initGraftToggle();
         initReset();
-        initCompareTray();
         renderAll();
       })
       .catch(function () {

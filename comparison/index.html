@@ -160,26 +160,13 @@
       <div class="media-section__head">
         <h2 class="media-section__title">11院の比較表</h2>
       </div>
-      <p class="compare-scroll-hint">※ 表は横にスクロールできます。上の「条件から探す」で絞り込んだ内容が反映されます。</p>
-      <div class="compare-table-wrap" id="compare-table-output"></div>
-    </div>
-  </section>
-
-  <!-- ============================== 2〜3院を選んで比較 ============================== -->
-  <section class="media-section" id="pick-compare">
-    <div class="container container--wide">
-      <div class="media-section__head">
-        <h2 class="media-section__title">2〜3院を選んで詳しく比較する</h2>
-      </div>
-      <p class="media-section__lead">
-        上のカードまたは比較表で「比較に追加」にチェックを付けると、最大3院までここに並べて比較できます。
+      <p class="compare-scroll-hint">
+        ※ 最初は11院すべてを表示しています。不要な院は各列の「×」で比較表から外せます（データが消えるわけではありません）。
+        表の枠内は縦横にスクロールでき、スクロール中もクリニック名の行と「比較項目」の列は固定表示されます。
+        上の「条件から探す」で絞り込んだ内容もあわせて反映されます。
       </p>
-      <p id="pick-message" class="filter-result-count" hidden></p>
-      <div id="picked-compare-empty" class="callout callout--neutral">
-        <p class="callout__title">まだ選択されていません</p>
-        <p>比較したいクリニックのチェックボックスを選んでください。</p>
-      </div>
-      <div class="compare-table-wrap" id="picked-compare-result" hidden></div>
+      <div id="compare-status-bar" class="compare-status-bar"></div>
+      <div class="compare-table-wrap compare-table-wrap--clinics" id="compare-table-output"></div>
     </div>
   </section>
 
@@ -232,11 +219,6 @@
   </p>
   <p class="footer-bottom">&copy; <span data-current-year>2026</span> 自毛植毛の手引き</p>
 </footer>
-
-<div id="compare-tray" class="compare-tray" hidden>
-  <p class="compare-tray__text">比較中：<span id="compare-tray-count">0</span>院</p>
-  <button type="button" id="compare-tray-btn" class="btn compare-tray__btn">比較を見る</button>
-</div>
 
 <script src="../js/main.js"></script>
 <script src="../js/comparison.js"></script>

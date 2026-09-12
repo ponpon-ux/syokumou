@@ -553,6 +553,107 @@ li { margin-bottom: 0.4em; }
   color: var(--color-accent);
 }
 
+/* ==========================================================================
+   関連記事ミニカード（Link Card）
+   本文中に挿入する、サムネイル付きの小型内部リンクカード。
+   広告CTA（.ad-slot / .cta-card / .btn）とは見た目を明確に分ける。
+   ========================================================================== */
+
+.link-card-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1.5em 0;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.link-card:hover {
+  border-color: var(--color-accent);
+  background: var(--color-bg-alt);
+}
+
+.link-card:hover .link-card__title {
+  color: var(--color-accent-dark);
+}
+
+.link-card__thumb {
+  flex: 0 0 auto;
+  display: block;
+  width: 92px;
+  height: 69px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-thumb-bg);
+}
+
+.link-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.link-card__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.link-card__label {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.link-card__title {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.45;
+  color: var(--color-text);
+}
+
+.link-card__desc {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 600px) {
+  .link-card {
+    padding: 8px;
+    gap: 10px;
+  }
+  .link-card__thumb {
+    width: 72px;
+    height: 54px;
+  }
+  .link-card__title {
+    font-size: 0.86rem;
+  }
+  .link-card__desc {
+    font-size: 0.74rem;
+  }
+}
+
 .sources {
   margin-top: 2em;
   font-size: 0.8rem;
@@ -1478,32 +1579,181 @@ li { margin-bottom: 0.4em; }
   padding-top: 12px;
   border-top: 1px solid var(--color-border);
 }
-.compare-pick {
+/* 横断比較表の表示状況バー（表示中N院／全11院・すべて表示・外した院チップ） */
+.compare-status-bar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
+  gap: 10px 16px;
+  margin-bottom: 14px;
+}
+.compare-status-bar:empty {
+  margin-bottom: 0;
+}
+.compare-status-bar__count {
+  margin: 0;
   font-size: 0.85rem;
   color: var(--color-text-muted);
+}
+.compare-status-bar__count strong {
+  color: var(--color-text);
+  font-weight: 700;
+}
+.compare-restore-all {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-accent-dark);
+  background: transparent;
+  color: var(--color-accent-dark);
   cursor: pointer;
-  padding: 4px 0 10px;
 }
-.compare-pick input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
+.compare-restore-all:hover {
+  background: var(--color-accent-soft);
 }
-.compare-pick--table {
+.compare-excluded-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-top: 2px;
+}
+.compare-excluded-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
   font-size: 0.78rem;
-  font-weight: 400;
-  padding: 2px 0 0;
+  padding: 5px 10px 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px dashed var(--color-border);
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  cursor: pointer;
 }
-.compare-table th.compare-table__name-cell {
+.compare-excluded-chip:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
+}
+.compare-excluded-chip__plus {
+  font-weight: 700;
+  color: var(--color-accent-dark);
+}
+
+/* 横断比較表本体：クリニック＝列。全院を初期表示し、列ヘッダーの×で個別に外す。
+   クリニック名の行（thead）と、比較項目ラベルの列（1列目）をそれぞれ sticky で固定する。
+
+   注：position:sticky は、祖先要素が overflow-x:auto のみを指定していて実際には縦方向に
+   はみ出さない（＝内部スクロールが発生しない）場合、縦方向にうまく固定されないことがある。
+   そのため、この表の枠は高さを決めて overflow:auto にし、枠内で縦横ともにスクロールする
+   「ボックス内スクロール」に統一する（他ページの.compare-tableには影響させない）。 */
+.compare-table-wrap--clinics {
+  overflow: auto;
+  max-height: 68vh;
+}
+.compare-table--clinics {
+  min-width: 640px;
+  /* sticky（th/tdのposition:sticky）はborder-collapse:collapseだと機能しないため、
+     この表だけ separate に切り替える。 */
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.compare-table--clinics th,
+.compare-table--clinics td {
+  border-top-width: 0;
+  border-left-width: 0;
   white-space: normal;
-  min-width: 150px;
+  vertical-align: top;
 }
-.compare-table th.compare-table__name-cell a {
-  display: block;
-  margin-bottom: 4px;
+.compare-table--clinics thead th {
+  border-top-width: 1px;
+}
+.compare-table--clinics th:first-child,
+.compare-table--clinics td:first-child {
+  border-left-width: 1px;
+}
+.compare-table--clinics thead th {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--color-bg-alt);
+}
+.compare-table--clinics thead th.compare-table__corner {
+  left: 0;
+  z-index: 4;
+  min-width: 108px;
+  white-space: nowrap;
+}
+.compare-table--clinics tbody th[scope="row"] {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background: var(--color-bg-alt);
+  min-width: 108px;
+  white-space: nowrap;
+}
+.compare-clinic-head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+  min-width: 148px;
+  padding-right: 24px;
+}
+.compare-clinic-head__remove {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.compare-clinic-head__remove:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
+  background: var(--color-bg-alt);
+}
+.compare-clinic-head__name {
+  font-weight: 700;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.compare-clinic-head__name:hover {
+  color: var(--color-accent-dark);
+}
+.compare-clinic-head__link {
+  font-size: 0.76rem;
+  color: var(--color-accent-dark);
+  text-decoration: none;
+}
+.compare-clinic-head__link:hover {
+  text-decoration: underline;
+}
+.compare-table-empty {
+  padding: 22px 4px;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .compare-clinic-head {
+    min-width: 118px;
+  }
+  .compare-clinic-head__name {
+    font-size: 0.85rem;
+  }
 }
 
 .topic-group {
@@ -1543,55 +1793,5 @@ li { margin-bottom: 0.4em; }
   }
   .filter-group {
     flex: 1 1 200px;
-  }
-}
-
-/* 「比較に追加」した院を知らせる固定バー（/comparison/ 専用） */
-.compare-tray {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 45;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  background: var(--color-accent-dark);
-  color: #fff;
-  padding: 12px 20px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.18);
-}
-.compare-tray[hidden] {
-  display: none;
-}
-.compare-tray__text {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 700;
-}
-.compare-tray__btn {
-  flex-shrink: 0;
-  background: #fff;
-  border-color: #fff;
-  color: var(--color-accent-dark);
-  padding: 8px 18px;
-  font-size: 0.85rem;
-}
-.compare-tray__btn:hover {
-  background: var(--color-accent-soft);
-  border-color: var(--color-accent-soft);
-  color: var(--color-accent-dark);
-}
-body.has-compare-tray {
-  padding-bottom: 64px;
-}
-@media (max-width: 480px) {
-  .compare-tray {
-    padding: 10px 14px;
-  }
-  .compare-tray__text {
-    font-size: 0.82rem;
   }
 }
