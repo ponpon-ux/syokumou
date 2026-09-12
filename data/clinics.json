@@ -141,10 +141,10 @@
       ],
 
       "procedures": {
-        "methods": ["カミクリ式自毛植毛（独自名称）"],
+        "methods": ["カミクリ式植毛術（刈り上げ）", "ノンシェーブン カミクリ式植毛術（刈り上げない）"],
         "unique_method_name": "カミクリ式植毛術／独自開発機器CFUシステム",
-        "shaved_fue": null,
-        "unshaven_fue": null,
+        "shaved_fue": true,
+        "unshaven_fue": true,
         "female_supported": true,
         "hairline_transplant": true,
         "hairline_note": "料金メニューに「生え際：800株〜」区分あり",
@@ -155,12 +155,12 @@
       "pricing": {
         "currency": "JPY",
         "tax_included": true,
-        "base_price": null,
-        "graft_price": null,
-        "price_500": null,
-        "price_1000": null,
-        "price_1500": null,
-        "price_2000": null,
+        "base_price": 220000,
+        "graft_price": { "shaved": 550, "unshaven": 880, "unit": "円/グラフト（税込）" },
+        "price_500": { "shaved": 495000, "unshaven": 660000 },
+        "price_1000": { "shaved": 770000, "unshaven": 1100000 },
+        "price_1500": { "shaved": 1045000, "unshaven": 1540000 },
+        "price_2000": { "shaved": 1320000, "unshaven": 1980000 },
         "monitor_price": null,
         "other_required_costs": null,
         "campaign_price": null,
@@ -171,8 +171,8 @@
           { "menu": "深いM字", "grafts_from": 1200, "price_total": 880000 },
           { "menu": "前頭部", "grafts_from": 1500, "price_total": 1045000 }
         ],
-        "calculation_note": "公式料金ページは部位別メニュー（浅いM字/生え際/頭頂部/深いM字/前頭部）ごとの『◯株〜、一括◯円〜』という表示のみで、基本料金とグラフト単価が分離公表されていない。そのため500/1000/1500/2000株ちょうどの総額を式で算出することができず、null としている。月々金額は頭金20万円・医療ローン84回分割条件での参考値。",
-        "source_note": "公式料金ページ（2026年9月10日確認）"
+        "calculation_note": "公式料金ページに『1株550円×植毛株数＋基本治療費22万円』（カミクリ式）と『1株880円×植毛株数＋基本治療費22万円』（ノンシェーブン）という式が明記されている。price_500/1000/1500はこの式どおりで、部位別早見表（menu_pricing）の実額（浅いM字500株=495,000円、生え際800株=660,000円、頭頂部1000株=770,000円、深いM字1200株=880,000円、前頭部1500株=1,045,000円）とすべて一致することを検算済み。2000株は式による試算値（早見表に直接の記載なし）。月々金額は頭金20万円・医療ローン84回分割条件での参考値。",
+        "source_note": "公式料金ページ（https://camino-clinic.jp/fee/、2026年9月13日確認）"
       },
 
       "support": {
@@ -191,22 +191,23 @@
 
       "key_features": [
         "独自名称「カミクリ式植毛術」と専用機器CFUシステムを訴求",
-        "部位別のパッケージ料金メニュー（浅いM字・生え際・頭頂部・深いM字・前頭部）",
+        "1株550円（カミクリ式）／880円（ノンシェーブン）＋基本治療費220,000円という料金体系を公式に明記",
+        "部位別の料金早見表（浅いM字・生え際・頭頂部・深いM字・前頭部）もあり総額イメージをつかみやすい",
         "交通費全額支給・宿泊費2万円まで支給"
       ],
-      "recommended_for": ["部位ごとのパッケージ料金で総額の見通しを立てたい人"],
-      "not_recommended_for": ["刈り上げの要否や術式の分類（FUE/FUT）を事前に明確な形で確認したい人（公式サイトの記載だけでは判断しづらい）"],
+      "recommended_for": ["1株単価と基本治療費から総額を自分で試算したい人", "刈り上げ・刈り上げない方式を比較したい人"],
+      "not_recommended_for": ["担当医師をあらかじめ指名したい人（院長という単独の責任者表示がない）"],
 
       "information_sources": [
         { "type": "official", "url": "https://camino-clinic.jp/", "desc": "トップページ", "last_verified": "2026-09-10" },
         { "type": "official", "url": "https://camino-clinic.jp/clinics/", "desc": "クリニック一覧", "last_verified": "2026-09-10" },
-        { "type": "official", "url": "https://camino-clinic.jp/fee/", "desc": "自毛植毛の費用", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://camino-clinic.jp/fee/", "desc": "自毛植毛の費用（1株単価・基本治療費・部位別早見表）", "last_verified": "2026-09-13" },
         { "type": "official", "url": "https://camino-clinic.jp/fee/monitor/", "desc": "モニター募集", "last_verified": "2026-09-10" },
         { "type": "official", "url": "https://camino-clinic.jp/about/", "desc": "当院について・医師紹介", "last_verified": "2026-09-10" },
         { "type": "official", "url": "https://camino-clinic.jp/cases/", "desc": "症例写真", "last_verified": "2026-09-10" },
         { "type": "third_party", "url": "https://hairclinicnavi.com/camino-clinic-doctor/", "desc": "医師経歴に関する第三者記事（本文では不採用、参考のみ）", "last_verified": "2026-09-10" }
       ],
-      "last_verified": "2026-09-10"
+      "last_verified": "2026-09-13"
     },
     {
       "clinic_id": "ask-inoue-clinic",
@@ -740,17 +741,17 @@
         "tax_included": true,
         "base_price": 0,
         "base_price_note": "基本治療費0円と公式に明記（他院との差別化ポイントとして訴求）",
-        "graft_price": { "smart_fue_implied": 720, "nonshaven_implied": 950, "unit": "円/グラフト（総額表からの逆算値。公式が単価として明記した数字ではない）" },
+        "graft_price": { "smart_fue": 720, "nonshaven": 950, "unit": "円/グラフト（税込）", "source_detail": "公式料金ページ（/price/#ownHair）に『1グラフトあたり720円』（スマートFUE植毛）『1グラフトあたり950円』（ノンシェーブン植毛）と単価そのものが明記されている。以前は総額表からの逆算値として扱っていたが、単価の直接記載を確認したため修正。" },
         "price_500": { "smart_fue": 360000, "nonshaven": 475000 },
         "price_1000": { "smart_fue": 720000, "nonshaven": 950000 },
         "price_1500": { "smart_fue": 1080000, "nonshaven": 1425000 },
         "price_2000": { "smart_fue": 1440000, "nonshaven": 1900000 },
         "price_table_full_note": "公式表には750／1,250／2,500／3,000グラフトの区分もあり（500刻みではなく250〜500刻み）",
-        "monitor_price": { "smart_fue_500": 288000, "note": "スマートFUE500グラフトの例で通常360,000円→モニター価格288,000円との情報を確認したが、モニター条件の詳細は未確認" },
+        "monitor_price": { "smart_fue_graft": 576, "nonshaven_graft": 760, "smart_fue_500": 288000, "note": "公式料金ページに、土日祝モニター価格として1グラフト576円（スマートFUE）・760円（ノンシェーブン）の記載を確認。スマートFUE500グラフトの例では通常360,000円→モニター価格288,000円。このほか期間限定の「平日限定植毛割引キャンペーン」価格（確認時点で1グラフト504円〜）もあるが、時期により変動するためcampaign_priceとは別管理とする。" },
         "other_required_costs": { "血液検査": 15950 },
         "campaign_price": null,
-        "calculation_note": "500/1000/1500/2000グラフトの金額は公式料金比較ページに明記された実額（試算ではない）。",
-        "source_note": "料金比較ページ（2026年9月10日確認）"
+        "calculation_note": "500/1000/1500/2000グラフトの金額は公式料金比較ページに明記された実額（試算ではない）。1グラフト単価（720円／950円）も公式に明記された数字であり、総額表と完全に一致する（例：720円×500=360,000円）。",
+        "source_note": "料金比較ページ（https://www.sbc-aga.jp/price/#ownHair、2026年9月13日確認）"
       },
 
       "support": {
@@ -769,21 +770,21 @@
       },
 
       "key_features": [
-        "基本治療費0円で、グラフト数別の総額が料金比較表に明記されている",
+        "基本治療費0円、1グラフト720円（スマートFUE）／950円（ノンシェーブン）という単価が公式に明記されている",
         "全国規模の展開（正確な院数は公式には確認できないが、全国100院以上と自称）",
         "女性向けFAGA専門サイトを別運営している"
       ],
-      "recommended_for": ["全国どこでも通える大手グループを希望する人", "基本治療費0円というシンプルな料金体系を重視する人"],
+      "recommended_for": ["全国どこでも通える大手グループを希望する人", "基本治療費0円・1グラフト単価が明確なシンプルな料金体系を重視する人"],
       "not_recommended_for": ["交通費・宿泊費補助の有無を重視する人（記載が確認できない）"],
 
       "information_sources": [
         { "type": "official", "url": "https://www.sbc-aga.jp/", "desc": "湘南AGAクリニック トップページ", "last_verified": "2026-09-10" },
-        { "type": "official", "url": "https://www.sbc-aga.jp/price/comparison.html", "desc": "料金比較ページ", "last_verified": "2026-09-10" },
+        { "type": "official", "url": "https://www.sbc-aga.jp/price/#ownHair", "desc": "料金ページ（1グラフト単価・モニター価格を含む）", "last_verified": "2026-09-13" },
         { "type": "official", "url": "https://www.sbc-aga.jp/doctor/saito.html", "desc": "斎藤浩一医師プロフィール", "last_verified": "2026-09-10" },
         { "type": "official", "url": "https://www.sbc-aga.jp/care/shokumou/hoshou.html", "desc": "安心保証制度", "last_verified": "2026-09-10" },
         { "type": "official", "url": "https://www.s-b-c.net/faga/", "desc": "女性向けFAGA診療", "last_verified": "2026-09-10" }
       ],
-      "last_verified": "2026-09-10"
+      "last_verified": "2026-09-13"
     },
     {
       "clinic_id": "island-tower-clinic",
