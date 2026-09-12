@@ -786,26 +786,23 @@
     },
     {
       "clinic_id": "island-tower-clinic",
-      "clinic_name": "アイランドタワークリニック",
+      "clinic_name": "新宿東京アイランドタワークリニック",
       "slug": "island-tower-clinic",
       "article_url": "/clinics/island-tower-clinic.html",
       "official_url": "https://ilandtower-clinic.jp/",
-      "official_name_note": "新宿院サイト（ilandtower-clinic.jp）とグループサイト（www.ilandtower-cl.com）が並存。累計症例数・新宿院の診療時間について両サイト間・ページ間で記載が一致しない箇所がある。",
+      "official_name_note": "本データは「アイランドタワークリニック」ブランドのうち新宿院（新宿東京アイランドタワークリニック）についての情報。新宿院サイト（ilandtower-clinic.jp）とグループ全体サイト（www.ilandtower-cl.com）が並存しており、累計症例数・新宿院の診療時間について両サイト間・ページ間で記載が一致しない箇所がある。",
 
       "affiliate_status": false,
       "affiliate_url": null,
       "affiliate_asp": null,
       "affiliate_cta_text": null,
-      "affiliate_notes": "2026年9月時点で未提携。",
+      "affiliate_notes": "2026年9月時点で未提携。広告提携の対象は新宿東京アイランドタワークリニック（新宿院）である旨を確認済み。他院（大阪・名古屋・福岡）は対象外。",
 
       "locations": [
-        { "name": "新宿院", "address": "東京都新宿区西新宿6-5-1 アイランドタワー5F", "type": "直営（医療法人社団樹伸会）" },
-        { "name": "大阪院", "address": "大阪府大阪市北区曽根崎2-6-6 コウヅキキャピタルウエスト7F", "type": "直営（医療法人社団萌永会）" },
-        { "name": "名古屋院", "address": "愛知県名古屋市中村区名駅4-24-8 いちご名古屋ビル7F", "type": "直営（医療法人社団萌永会）" },
-        { "name": "福岡院", "address": "福岡県福岡市中央区今泉1-22-20 アベニュー天神ビル6F", "type": "直営（医療法人社団福永会）" }
+        { "name": "新宿院（新宿東京アイランドタワークリニック）", "address": "東京都新宿区西新宿6-5-1 アイランドタワー5F", "type": "直営（医療法人社団樹伸会）" }
       ],
-      "clinic_count": 4,
-      "regions": ["東京", "大阪", "愛知", "福岡"],
+      "clinic_count": 1,
+      "regions": ["東京"],
 
       "doctors": [
         {
