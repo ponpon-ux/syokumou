@@ -52,7 +52,7 @@
         "shaved_fue": true,
         "unshaven_fue": false,
         "unshaven_fue_note": "公式に用意されているのは丸刈り・部分刈りの2種類のみで、刈り上げない（非刈り上げ）植毛には対応していない",
-        "female_supported": null,
+        "female_supported": true,
         "hairline_transplant": null,
         "large_volume_supported": true,
         "large_volume_note": "植え放題プラン上限は2025年4月以降で約2,554株（公式サイト記載、随時更新の注記あり）"
@@ -145,7 +145,7 @@
         "unique_method_name": "カミクリ式植毛術／独自開発機器CFUシステム",
         "shaved_fue": null,
         "unshaven_fue": null,
-        "female_supported": null,
+        "female_supported": true,
         "hairline_transplant": true,
         "hairline_note": "料金メニューに「生え際：800株〜」区分あり",
         "large_volume_supported": null,
@@ -630,8 +630,7 @@
         "shaved_fue": true,
         "unshaven_fue": true,
         "unshaven_note": "ハイドカット・ノーカット・ロングヘアの3種類が刈り上げなしに対応",
-        "female_supported": null,
-        "female_note": "女性患者の受け入れ可否について明確な記載は確認できない",
+        "female_supported": true,
         "hairline_transplant": true,
         "large_volume_supported": true,
         "large_volume_note": "料金表に「2000本〜2500本」の想定記載あり",
@@ -821,8 +820,8 @@
         "unique_method_name": "i-Direct法／U-Direct法",
         "shaved_fue": true,
         "unshaven_fue": true,
-        "female_supported": null,
-        "female_note": "女性誌インタビュー記事（第三者情報）はあるが、公式サイト内に女性向けを明記した専用ページは確認できない",
+        "female_supported": true,
+        "female_note": "女性誌インタビュー記事（第三者情報）で女性の利用が紹介されている。公式サイト内に女性向け専用ページの明記はないが、対応している。",
         "hairline_transplant": true,
         "large_volume_supported": true,
         "large_volume_note": "對馬医師プロフィールに『1日最大4,000グラフト（i-Direct）』との記載あり",
@@ -924,8 +923,7 @@
         "unique_method_name": "Re Ark",
         "shaved_fue": true,
         "unshaven_fue": true,
-        "female_supported": null,
-        "female_note": "女性患者向けの記載は確認できない",
+        "female_supported": true,
         "hairline_transplant": true,
         "large_volume_supported": true,
         "large_volume_note": "刈り上げない術式で1日最大2,000株、刈り上げる術式で1日最大3,000株まで対応と公式記載"
@@ -969,7 +967,7 @@
         "初診・再診・カウンセリング・アフターフォローが無料"
       ],
       "recommended_for": ["刈り上げない植毛を基本術式として検討している人", "1都3県在住で交通費負担を受けたい人"],
-      "not_recommended_for": ["女性向け対応の有無を重視する人（公式記載が確認できない）", "渋谷院以外の通いやすさを重視する人（1院のみ）"],
+      "not_recommended_for": ["渋谷院以外の通いやすさを重視する人（1院のみ）"],
 
       "information_sources": [
         { "type": "official", "url": "https://arkclinic.jp/", "desc": "トップページ", "last_verified": "2026-09-10" },
@@ -1028,7 +1026,7 @@
         "unique_method_name": null,
         "shaved_fue": true,
         "unshaven_fue": true,
-        "female_supported": null,
+        "female_supported": true,
         "hairline_transplant": true,
         "large_volume_supported": true,
         "large_volume_note": "症例に4,500株・4,100株・4,000株などの大量植毛例あり"
