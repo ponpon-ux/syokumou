@@ -50,7 +50,8 @@
         "methods": ["FUE（丸刈り自毛植毛）", "FUE（部分刈り自毛植毛）"],
         "unique_method_name": null,
         "shaved_fue": true,
-        "unshaven_fue": true,
+        "unshaven_fue": false,
+        "unshaven_fue_note": "公式に用意されているのは丸刈り・部分刈りの2種類のみで、刈り上げない（非刈り上げ）植毛には対応していない",
         "female_supported": null,
         "hairline_transplant": null,
         "large_volume_supported": true,
@@ -855,9 +856,10 @@
       },
 
       "cases": {
-        "official_case_count": null,
+        "official_case_count": 39000,
+        "official_case_count_text": "39,000件超",
         "official_case_photos": true,
-        "note": "公式ドメイン・ページ間で累計症例数が「25,000件以上」「35,000件以上」「39,000件超」と3通り併存しており、最新かつ正確な数字は確認できない"
+        "note": "公式LPに「39,000件超」と記載されていることを確認。旧ページ・グループサイトの一部に「25,000件以上」「35,000件以上」という古い数字が残っている場合があるが、最新の公式LPの表記である39,000件超に統一する。"
       },
 
       "key_features": [
@@ -866,7 +868,7 @@
         "全額返金または無償再手術を含む保証プランがある"
       ],
       "recommended_for": ["診察・検査にかかる追加費用を避けたい人", "刈らない植毛（U-Direct）の総額目安を知りたい人"],
-      "not_recommended_for": ["公式サイトの累計症例数や診療時間の表記の一貫性を重視する人（サイト間で数値の食い違いがある）"],
+      "not_recommended_for": ["公式サイトの診療時間の表記の一貫性を重視する人（新宿院サイトとグループサイトで記載が異なる）"],
 
       "information_sources": [
         { "type": "official", "url": "https://ilandtower-clinic.jp/", "desc": "新宿院トップページ", "last_verified": "2026-09-10" },
