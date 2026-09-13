@@ -135,57 +135,6 @@
     out.textContent = "条件に合うクリニック：" + list.length + " / " + ALL_CLINICS.length + "院";
   }
 
-  /* ---------------- 描画：クリニックカード ---------------- */
-
-  function renderCards(list) {
-    var wrap = document.getElementById("clinic-cards");
-    if (!wrap) return;
-    wrap.innerHTML = "";
-    if (!list.length) {
-      wrap.appendChild(el("p", "filter-empty", "条件に合うクリニックが見つかりませんでした。条件を減らしてお試しください。"));
-      return;
-    }
-    list.forEach(function (clinic) {
-      var card = el("div", "card compare-clinic-card");
-
-      var body = el("div", "card__body");
-
-      var title = el("p", "card__title");
-      var titleLink = document.createElement("a");
-      titleLink.href = clinic.article_url;
-      titleLink.textContent = clinic.clinic_name;
-      title.appendChild(titleLink);
-      body.appendChild(title);
-
-      var facts = el("ul", "clinic-facts");
-      facts.appendChild(el("li", null, (clinic.regions || []).join(" / ") || "地域確認中"));
-      facts.appendChild(el("li", null, state.grafts.toLocaleString("ja-JP") + "株：" + priceText(clinic, state.grafts)));
-      if (clinic.procedures && clinic.procedures.unique_method_name) {
-        facts.appendChild(el("li", null, clinic.procedures.unique_method_name));
-      }
-      body.appendChild(facts);
-
-      if (clinic.key_features && clinic.key_features[0]) {
-        body.appendChild(el("p", "card__excerpt", clinic.key_features[0]));
-      }
-      if (clinic.recommended_for && clinic.recommended_for[0]) {
-        body.appendChild(el("p", "card__excerpt", "<strong>向いている人：</strong>" + clinic.recommended_for[0]));
-      }
-
-      var actions = el("div", "compare-clinic-card__actions");
-
-      var link = document.createElement("a");
-      link.className = "card__cta";
-      link.href = clinic.article_url;
-      link.textContent = "個別記事を見る";
-      actions.appendChild(link);
-
-      body.appendChild(actions);
-      card.appendChild(body);
-      wrap.appendChild(card);
-    });
-  }
-
   /* ---------------- 横断比較表：院の除外／復元 ---------------- */
 
   function toggleExclude(clinicId) {
@@ -342,65 +291,12 @@
     wrap.appendChild(table);
   }
 
-  /* ---------------- 描画：条件別に比較したい院（テーマ別リンク集） ---------------- */
-
-  function renderTopicGroups() {
-    var wrap = document.getElementById("topic-groups");
-    if (!wrap) return;
-    wrap.innerHTML = "";
-
-    var topics = [
-      {
-        title: "刈り上げない植毛を比較したい人向け",
-        clinics: ALL_CLINICS.filter(function (c) { return c.procedures && c.procedures.unshaven_fue === true; })
-      },
-      {
-        title: "女性の薄毛治療を比較したい人向け",
-        clinics: ALL_CLINICS.filter(function (c) { return c.procedures && c.procedures.female_supported === true; })
-      },
-      {
-        title: "交通費・宿泊費補助がある院を比較したい人向け",
-        clinics: ALL_CLINICS.filter(function (c) {
-          var s = c.support || {};
-          return !!(s.travel_support || s.accommodation_support);
-        })
-      },
-      {
-        title: (state.grafts.toLocaleString("ja-JP")) + "株の料金が公式に確認できる院",
-        clinics: ALL_CLINICS.filter(function (c) { return priceEntries(c, state.grafts) !== null; })
-      },
-      {
-        title: "全国に複数の院がある大手クリニック",
-        clinics: ALL_CLINICS.filter(function (c) { return (c.regions || []).length >= 3; })
-      }
-    ];
-
-    topics.forEach(function (topic) {
-      if (!topic.clinics.length) return;
-      var block = el("div", "topic-group");
-      block.appendChild(el("p", "topic-group__title", topic.title));
-      var list = el("ul", "topic-group__list");
-      topic.clinics.forEach(function (c) {
-        var li = document.createElement("li");
-        var a = document.createElement("a");
-        a.href = c.article_url;
-        a.textContent = c.clinic_name;
-        li.appendChild(a);
-        list.appendChild(li);
-      });
-      block.appendChild(list);
-      wrap.appendChild(block);
-    });
-  }
-
   /* ---------------- 再描画まとめ ---------------- */
 
   function renderAll() {
     var list = filteredClinics();
     renderResultCount(list);
-    renderCards(list);
     renderTable(list);
-    renderTopicGroups();
   }
 
   /* ---------------- フィルタUIの初期化 ---------------- */

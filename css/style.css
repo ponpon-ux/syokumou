@@ -1554,6 +1554,14 @@ li { margin-bottom: 0.4em; }
   gap: 8px;
   margin-bottom: 18px;
 }
+@media (max-width: 600px) {
+  .graft-toggle {
+    margin-bottom: 10px;
+  }
+  .compare-table-wrap {
+    margin-top: 0.8em;
+  }
+}
 .graft-toggle__btn {
   font-family: var(--font-sans);
   font-size: 0.9rem;
