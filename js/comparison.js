@@ -191,10 +191,38 @@
 
   /* ---------------- 描画：横断比較表（クリニック＝列、全院表示 → 不要な院を外す） ---------------- */
 
+  // 表の横スクロールバーは表の下端に出るため、表が縦に長いと操作できない位置まで
+  // 離れてしまう。表の直上に複製のスクロールバーを置き、scrollLeftを双方向に同期する。
+  function syncTopScrollbar(wrap) {
+    var topBar = document.getElementById("compare-table-scrollbar");
+    var topInner = document.getElementById("compare-table-scrollbar-inner");
+    if (!topBar || !topInner) return;
+    var needsScroll = wrap.scrollWidth > wrap.clientWidth + 1;
+    topBar.hidden = !needsScroll;
+    if (!needsScroll) return;
+    topInner.style.width = wrap.scrollWidth + "px";
+    var syncing = false;
+    topBar.onscroll = function () {
+      if (syncing) return;
+      syncing = true;
+      wrap.scrollLeft = topBar.scrollLeft;
+      syncing = false;
+    };
+    wrap.onscroll = function () {
+      if (syncing) return;
+      syncing = true;
+      topBar.scrollLeft = wrap.scrollLeft;
+      syncing = false;
+    };
+  }
+
   function renderTable(filteredList) {
     var wrap = document.getElementById("compare-table-output");
     if (!wrap) return;
     wrap.innerHTML = "";
+
+    var topBarReset = document.getElementById("compare-table-scrollbar");
+    if (topBarReset) topBarReset.hidden = true;
 
     var list = filteredList.filter(function (c) { return !state.excluded[c.clinic_id]; });
 
@@ -289,6 +317,7 @@
     table.appendChild(tbody);
 
     wrap.appendChild(table);
+    syncTopScrollbar(wrap);
   }
 
   /* ---------------- 再描画まとめ ---------------- */
@@ -394,6 +423,10 @@
         initGraftToggle();
         initReset();
         renderAll();
+        window.addEventListener("resize", function () {
+          var wrap = document.getElementById("compare-table-output");
+          if (wrap && wrap.querySelector("table")) syncTopScrollbar(wrap);
+        });
       })
       .catch(function () {
         if (loadingEl) loadingEl.textContent = "データの読み込みに失敗しました。時間をおいて再度お試しください。";

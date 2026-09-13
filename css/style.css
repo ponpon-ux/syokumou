@@ -1659,6 +1659,23 @@ li { margin-bottom: 0.4em; }
   overflow-x: auto;
   overflow-y: visible;
 }
+
+/* 表の高さを固定しない結果、横スクロールバー（.compare-table-wrap--clinicsの下端に出る）が
+   表の最下部まで届かないと操作できなくなる。そこで、表の直上にも同じ横幅を持つ
+   スクロールバーを複製し、JS（comparison.js）でscrollLeftを双方向に同期させる。
+   表がビューポート幅に収まる場合はJSでhidden属性を付けて非表示にする。 */
+.compare-table-scrollbar {
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 16px;
+  margin-bottom: 6px;
+}
+.compare-table-scrollbar[hidden] {
+  display: none;
+}
+.compare-table-scrollbar__inner {
+  height: 1px;
+}
 .compare-table--clinics {
   min-width: 640px;
   /* sticky（th/tdのposition:sticky）はborder-collapse:collapseだと機能しないため、
