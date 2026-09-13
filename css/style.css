@@ -1650,15 +1650,14 @@ li { margin-bottom: 0.4em; }
 }
 
 /* 横断比較表本体：クリニック＝列。全院を初期表示し、列ヘッダーの×で個別に外す。
-   クリニック名の行（thead）と、比較項目ラベルの列（1列目）をそれぞれ sticky で固定する。
-
-   注：position:sticky は、祖先要素が overflow-x:auto のみを指定していて実際には縦方向に
-   はみ出さない（＝内部スクロールが発生しない）場合、縦方向にうまく固定されないことがある。
-   そのため、この表の枠は高さを決めて overflow:auto にし、枠内で縦横ともにスクロールする
-   「ボックス内スクロール」に統一する（他ページの.compare-tableには影響させない）。 */
+   表の縦方向は高さを固定しない（ページ自体を縦スクロールして全行を読む）。
+   横方向のみ、この枠内でスクロールする（11院分の列がビューポート幅に収まらないため）。
+   比較項目ラベルの列（1列目）は、横スクロール中も見失わないよう左端に sticky で固定する。
+   クリニック名の行（thead）は、縦方向を固定高さのスクロール領域にしない方針のため、
+   ページ全体のスクロールに合わせて通常どおり流れる（内部スクロール用の sticky top は使わない）。 */
 .compare-table-wrap--clinics {
-  overflow: auto;
-  max-height: 68vh;
+  overflow-x: auto;
+  overflow-y: visible;
 }
 .compare-table--clinics {
   min-width: 640px;
@@ -1682,12 +1681,11 @@ li { margin-bottom: 0.4em; }
   border-left-width: 1px;
 }
 .compare-table--clinics thead th {
-  position: sticky;
-  top: 0;
   z-index: 3;
   background: var(--color-bg-alt);
 }
 .compare-table--clinics thead th.compare-table__corner {
+  position: sticky;
   left: 0;
   z-index: 4;
   min-width: 108px;
