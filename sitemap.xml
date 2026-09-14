@@ -86,6 +86,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://shokumou-tebiki.com/clinics/tokyo-shokumou-clinic-counseling.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://shokumou-tebiki.com/clinics/tokyo-shokumou-clinic-campaign.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://shokumou-tebiki.com/clinics/usugenomadoguchi.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
