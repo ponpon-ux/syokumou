@@ -654,6 +654,86 @@ li { margin-bottom: 0.4em; }
   }
 }
 
+/* ==========================================================================
+   クイックナビ（記事冒頭「知りたいことから選ぶ」用コンパクトカード）
+   ========================================================================== */
+
+.quick-nav {
+  margin: 1.6em 0;
+  padding: 16px 16px 18px;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.quick-nav__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  margin: 0 0 12px;
+}
+.quick-nav__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 480px) {
+  .quick-nav__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.quick-nav__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.quick-nav__item:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+.quick-nav__item:hover .quick-nav__item-title {
+  color: var(--color-accent-dark);
+}
+.quick-nav__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-bottom: 2px;
+  color: var(--color-accent);
+}
+.quick-nav__icon svg {
+  width: 20px;
+  height: 20px;
+}
+.quick-nav__item-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text);
+}
+.quick-nav__item-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+.quick-nav__item-cta {
+  margin-top: auto;
+  padding-top: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--color-accent-dark);
+}
+
 .sources {
   margin-top: 2em;
   font-size: 0.8rem;
