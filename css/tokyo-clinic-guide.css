@@ -1,0 +1,31 @@
+/* 総合ページだけの補助スタイル。色・幅・文字は共通デザインを継承。 */
+.tokyo-clinic-guide .article-body [id] { scroll-margin-top: 110px; }
+.tokyo-clinic-guide blockquote {
+  margin: 1em 0 0.5em;
+  padding: 12px 18px;
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg-alt);
+}
+.tokyo-clinic-guide blockquote p { margin: 0; }
+.tokyo-clinic-guide .guide-source {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+.tokyo-clinic-guide .guide-case {
+  margin: 1.2em 0;
+  padding: 16px 20px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+.tokyo-clinic-guide .guide-case h3 { margin-top: 0; }
+.tokyo-clinic-guide .guide-case p:last-child { margin-bottom: 0; }
+.tokyo-clinic-guide .btn { white-space: normal; overflow-wrap: anywhere; }
+.tokyo-clinic-guide .compare-table-wrap:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .tokyo-clinic-guide .guide-case { padding: 14px; }
+}
