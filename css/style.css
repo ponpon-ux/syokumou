@@ -1402,6 +1402,54 @@ li { margin-bottom: 0.4em; }
   display: inline;
 }
 
+/* 提携CTAだけに、斜めの光を左から右へ流す。リンク先・サイズは維持。 */
+.btn[href^="https://px.a8.net/"] {
+  position: relative;
+}
+:is(.btn, .sticky-cta)[href^="https://px.a8.net/"] {
+  overflow: hidden;
+  isolation: isolate;
+  background: #008657;
+  border-color: #008657;
+  color: #fff;
+}
+:is(.btn, .sticky-cta)[href^="https://px.a8.net/"]:is(:hover, :focus-visible) {
+  background: #007348;
+  border-color: #007348;
+  color: #fff;
+}
+:is(.btn, .sticky-cta)[href^="https://px.a8.net/"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg,
+    transparent 38%, rgba(255, 255, 255, 0.12) 44%,
+    rgba(255, 255, 255, 0.42) 50%,
+    rgba(255, 255, 255, 0.12) 56%, transparent 62%);
+  transform: translateX(-110%);
+  animation: affiliate-shine 5s ease-in-out infinite;
+}
+:is(.btn, .sticky-cta)[href^="https://px.a8.net/"]:is(:hover, :focus-visible)::after {
+  animation: affiliate-shine-once 850ms ease-out both;
+}
+@keyframes affiliate-shine {
+  0%, 74% { transform: translateX(-110%); opacity: 0; }
+  75% { opacity: 1; }
+  95% { transform: translateX(110%); opacity: 1; }
+  96%, 100% { transform: translateX(110%); opacity: 0; }
+}
+@keyframes affiliate-shine-once {
+  from { transform: translateX(-110%); }
+  to { transform: translateX(110%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.btn, .sticky-cta)[href^="https://px.a8.net/"]::after {
+    display: none;
+    animation: none;
+  }
+}
+
 @media (max-width: 639px) {
   .sticky-cta {
     left: 0;
