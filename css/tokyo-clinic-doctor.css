@@ -1,0 +1,53 @@
+/* 医師紹介ページに限定。共通デザインの配色・文字・本文幅を継承。 */
+/* 長い記事でも目次から目的の見出しへすぐ移動できるようにする。 */
+html:has(body.doctor-guide) { scroll-behavior: auto; }
+.doctor-guide .doctor-marker {
+  font-weight: 700;
+  background: linear-gradient(transparent 58%, #dce7cf 58%, #dce7cf 94%, transparent 94%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.doctor-guide .doctor-cta {
+  margin: 2em 0;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-accent);
+  border-radius: 10px;
+  background: var(--color-surface);
+}
+.doctor-guide .doctor-cta__label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+.doctor-guide .doctor-cta__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 56px;
+  padding: 15px 20px;
+  border-radius: 8px;
+  line-height: 1.65;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.doctor-guide .doctor-cta__button:focus-visible,
+.doctor-guide .compare-table-wrap:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+.doctor-guide .doctor-career li { margin-bottom: 1em; }
+.doctor-guide .doctor-source,
+.doctor-guide .doctor-source-list {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+.doctor-guide .article-body [id] { scroll-margin-top: 110px; }
+@media (max-width: 600px) {
+  .doctor-guide .doctor-cta { padding: 20px 16px; }
+  .doctor-guide .doctor-cta__button { padding: 14px 12px; }
+}
