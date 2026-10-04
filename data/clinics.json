@@ -215,32 +215,38 @@
       "slug": "ask-inoue-clinic",
       "article_url": "/clinics/ask-inoue-clinic.html",
       "official_url": "https://www.asc-cl.jp/",
-
-      "affiliate_status": false,
-      "affiliate_url": null,
-      "affiliate_asp": null,
-      "affiliate_cta_text": null,
-      "affiliate_notes": "2026年9月時点で未提携。",
-
+      "affiliate_status": true,
+      "affiliate_url": "https://px.a8.net/svt/ejp?a8mat=4BC7V9+4Y0RAA+36OM+644DT&a8sns=note",
+      "affiliate_asp": "A8.net",
+      "affiliate_cta_text": "アスク井上クリニックの公式サイトを見る",
+      "affiliate_notes": "2026年10月4日、ユーザー指定のA8.netリンクを設定。成果条件や成果計測は未確認。",
       "locations": [
-        { "name": "新宿院", "address": "東京都新宿区（詳細番地は公式トップページ本文では確認できない）", "type": "直営" }
+        {
+          "name": "新宿院",
+          "address": "東京都新宿区歌舞伎町2-46-3 SIL新宿（西武新宿駅前ビル）6階",
+          "type": "直営"
+        }
       ],
       "clinic_count": 1,
-      "regions": ["東京"],
-
+      "regions": [
+        "東京"
+      ],
       "doctors": [
         {
           "name": "井上浩一",
           "role": "院長",
           "bio": "熊本大学医学部卒業。熊本大学医学部附属病院勤務後、1989年に大手美容整形外科クリニック本院勤務、1998年に都内美容外科クリニックで院長就任、2002年に開院したアイランドタワークリニックで開院当初から診療に携わり、2014年に独立してアスク井上クリニックを開院。",
           "credentials": "確認できない（専門医資格の具体名は公式サイト本文で確認できず）",
-          "hair_transplant_experience": "「メスを使用しない自毛植毛FUEを更に進化させたパワードFUE」（i-SAFE、i-ダイレクト）の開発者を自称。植毛実績累計15,000症例以上と公式記載。",
-          "source_note": "累計15,000症例以上は公式サイト（/about/dr/）記載の自己申告値であり、第三者機関による検証の有無は確認できない"
+          "hair_transplant_experience": "公式プロフィールにi-ダイレクト・i-SAFE開発の経緯を記載。累計症例数の定義・内訳は今回未確認。",
+          "source_note": "2026年10月4日に公式プロフィールを確認。過去の15,000症例という記載は今回裏付けられず採用しない。"
         }
       ],
-
       "procedures": {
-        "methods": ["i-SAFEスタンダード（刈り上げ型FUE系）", "アンシェーブンi-SAFE（非刈り上げ型）", "ハイブリッドi-SAFE"],
+        "methods": [
+          "i-SAFEスタンダード（刈り上げ型FUE系）",
+          "アンシェーブンi-SAFE（非刈り上げ型）",
+          "ハイブリッドi-SAFE"
+        ],
         "unique_method_name": "i-SAFE／アンシェーブンi-SAFE／ハイブリッドi-SAFE",
         "shaved_fue": true,
         "unshaven_fue": true,
@@ -251,62 +257,132 @@
         "large_volume_supported": true,
         "large_volume_note": "「最大4,000〜4,500グラフト程度を1日で」との記載（ページ間で数値にやや差異あり）"
       },
-
       "pricing": {
         "currency": "JPY",
         "tax_included": true,
         "base_price": 220000,
-        "graft_price": { "shaved": 880, "unshaven": 1430, "unit": "円/グラフト（税込）" },
-        "price_500": { "shaved": 660000, "unshaven": 935000 },
-        "price_1000": { "shaved": 1100000, "unshaven": 1650000 },
-        "price_1500": { "shaved": 1540000, "unshaven": 2365000 },
-        "price_2000": { "shaved": 1980000, "unshaven": 3080000 },
+        "graft_price": {
+          "shaved": 880,
+          "unshaven": 1430,
+          "unit": "円/グラフト（税込）"
+        },
+        "price_500": {
+          "shaved": 660000,
+          "unshaven": 935000
+        },
+        "price_1000": {
+          "shaved": 1100000,
+          "unshaven": 1650000
+        },
+        "price_1500": {
+          "shaved": 1540000,
+          "unshaven": 2365000
+        },
+        "price_2000": {
+          "shaved": 1980000,
+          "unshaven": 3080000
+        },
         "monitor_price": {
-          "price_500": { "shaved": 462000, "unshaven": 654500 },
-          "price_1000": { "shaved": 770000, "unshaven": 1155000 },
-          "price_1500": { "shaved": 1078000, "unshaven": 1655500 },
-          "price_2000": { "shaved": 1386000, "unshaven": 2156000 },
-          "note": "公式「フルフェイスモニター：30%オフ」に基づき通常料金×0.7で算出"
+          "price_500": {
+            "shaved": 462000,
+            "unshaven": 654500
+          },
+          "price_1000": {
+            "shaved": 770000,
+            "unshaven": 1155000
+          },
+          "price_1500": {
+            "shaved": 1078000,
+            "unshaven": 1655500
+          },
+          "price_2000": {
+            "shaved": 1386000,
+            "unshaven": 2156000
+          },
+          "note": "フルフェイスモニター30%オフの公式料金例に基づく通常料金×0.7の参考値。適用条件要確認。医師指名不可・全顔撮影等の条件あり。"
         },
         "other_required_costs": null,
-        "other_required_costs_note": "「表示料金以外に追加費用はありません」「血液検査は無料」と公式記載。薬剤処方時は別途費用が発生する場合ありとの注記あり",
+        "other_required_costs_note": "院長の手術指名は特診料あり（金額未公表）。希望する薬剤の別途処方費用がかかる場合あり。カウンセリング・初診再診・血液検査・翌日診察とシャンプーは無料の案内。",
         "campaign_price": null,
         "calculation_note": "基本治療費220,000円（税込）＋グラフト単価（税込）×株数で算出。公式料金表の実例（800グラフト＝924,000円、1,500グラフト＝1,540,000円/2,365,000円、2,000グラフト＝1,980,000円/3,080,000円）と完全に一致することを確認済み。",
-        "source_note": "公式料金ページ（2026年9月10日確認）"
+        "source_note": "公式料金・モニター募集ページ（2026年10月4日確認）"
       },
-
       "support": {
-        "travel_support": "制度あり（当院で手術を受ける方が対象、具体的な上限額は確認できない）",
+        "travel_support": "国内居住かつ手術を受ける人が対象。相談のみは対象外。術後に領収書と引き換え。上限額・還元率は公式専用ページで未確認。",
         "accommodation_support": "制度あり（同上、具体的な上限額は確認できない）",
         "online_consultation": true,
         "aftercare": "翌日の包帯除去・初回洗髪、術後6ヶ月・1年後の定期検診。検診時の追加費用なしと明記",
-        "warranty": "正式な保証制度としての明記は確認できない（院長見解として『ちゃんとやれれば90%程度の生着は期待できる』という一般論的言及のみ）"
+        "warranty": "今回確認した公式ページでは正式な無料修正・返金保証条件を特定できず。無料の再診と結果保証は別に確認が必要。"
       },
-
       "cases": {
         "official_case_count": null,
         "official_case_photos": true,
         "note": "症例ページに多数の男女症例を確認（ページネーション1〜10）。総掲載件数の明記は確認できない"
       },
-
       "key_features": [
         "刈り上げ型（i-SAFE）と非刈り上げ型（アンシェーブンi-SAFE）を選べる",
         "女性専門サイトを別運営し、女性向け植毛に対応",
         "モニター価格（通常の30%オフ）が公式に明記されている"
       ],
-      "recommended_for": ["刈り上げずに施術したい人", "生え際や女性の薄毛に対応してくれる院を探している人"],
-      "not_recommended_for": ["交通費・宿泊費補助の具体的な金額を事前に把握してから検討したい人（上限額の公式記載なし）"],
-
-      "information_sources": [
-        { "type": "official", "url": "https://www.asc-cl.jp/", "desc": "トップページ", "last_verified": "2026-09-10" },
-        { "type": "official", "url": "https://www.asc-cl.jp/cost/", "desc": "自毛植毛の費用・料金について", "last_verified": "2026-09-10" },
-        { "type": "official", "url": "https://www.asc-cl.jp/cost/subsidy/", "desc": "交通費・宿泊費補助制度について", "last_verified": "2026-09-10" },
-        { "type": "official", "url": "https://www.asc-cl.jp/about/dr/", "desc": "自毛植毛の名医紹介", "last_verified": "2026-09-10" },
-        { "type": "official", "url": "https://www.asc-cl.jp/medical/woman/", "desc": "女性のための薄毛治療", "last_verified": "2026-09-10" },
-        { "type": "official", "url": "https://www.asc-cl.jp/medical/advantage", "desc": "切らない自毛植毛i-SAFEとは", "last_verified": "2026-09-10" },
-        { "type": "official", "url": "https://www.asc-cl.jp/case/", "desc": "症例一覧", "last_verified": "2026-09-10" }
+      "recommended_for": [
+        "刈り上げずに施術したい人",
+        "生え際や女性の薄毛に対応してくれる院を探している人"
       ],
-      "last_verified": "2026-09-10"
+      "not_recommended_for": [
+        "交通費・宿泊費補助の具体的な金額を事前に把握してから検討したい人（上限額の公式記載なし）"
+      ],
+      "information_sources": [
+        {
+          "type": "official",
+          "url": "https://www.asc-cl.jp/",
+          "desc": "トップページ",
+          "last_verified": "2026-10-04"
+        },
+        {
+          "type": "official",
+          "url": "https://www.asc-cl.jp/cost/",
+          "desc": "自毛植毛の費用・料金について",
+          "last_verified": "2026-10-04"
+        },
+        {
+          "type": "official",
+          "url": "https://www.asc-cl.jp/cost/subsidy/",
+          "desc": "交通費・宿泊費補助制度について",
+          "last_verified": "2026-10-04"
+        },
+        {
+          "type": "official",
+          "url": "https://www.asc-cl.jp/about/dr/",
+          "desc": "自毛植毛の名医紹介",
+          "last_verified": "2026-10-04"
+        },
+        {
+          "type": "official",
+          "url": "https://www.asc-cl.jp/medical/woman/",
+          "desc": "女性のための薄毛治療",
+          "last_verified": "2026-09-10"
+        },
+        {
+          "type": "official",
+          "url": "https://www.asc-cl.jp/medical/advantage",
+          "desc": "切らない自毛植毛i-SAFEとは",
+          "last_verified": "2026-09-10"
+        },
+        {
+          "type": "official",
+          "url": "https://www.asc-cl.jp/case/",
+          "desc": "症例一覧",
+          "last_verified": "2026-09-10"
+        },
+        {
+          "type": "official",
+          "url": "https://www.asc-cl.jp/monitor/",
+          "desc": "モニター募集条件",
+          "last_verified": "2026-10-04"
+        }
+      ],
+      "last_verified": "2026-09-10",
+      "article_review_verified": "2026-10-04"
     },
     {
       "clinic_id": "shinwa-clinic",
